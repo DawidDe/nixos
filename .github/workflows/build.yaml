@@ -1,33 +1,60 @@
-name: Build Pi Image
+name: Build NixOS RPi4 SD Image
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [ main, master ]
     paths:
       - 'pi/**'
-      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'pi/**'
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: pi
-
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
-      - uses: cachix/install-nix-action@v31
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          nix_path: nixpkgs=channel:nixos-25.05
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            max-jobs = auto
+            cores = 0
 
-      - name: Build image
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: dawidde-nixos
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: Build SD Image
+        working-directory: ./pi
         run: |
-          nix build .#sd-image
+          nix build .#sd-image \
+            --print-out-paths \
+            --no-link \
+            -L
 
-      - name: Upload image
+      - name: Copy & Compress Image
+        working-directory: ./pi
+        run: |
+          mkdir -p ../artifact
+          # Copy the compressed image if available, otherwise compress it
+          if ls result/sd-image/*.img.zst > /dev/null 2>&1; then
+            cp result/sd-image/*.img.zst ../artifact/
+          else
+            cp result/sd-image/*.img ../artifact/
+            zstd -T0 -19 --rm ../artifact/*.img
+          fi
+          ls -lh ../artifact/
+
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: nixos-pi-image
-          path: pi/result/sd-image/*
+          name: rpi4-nixos-sd-image
+          path: artifact/
+          retention-days: 30
