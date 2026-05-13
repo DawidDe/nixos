@@ -3,11 +3,9 @@ name: Build NixOS RPi4 SD Image
 on:
   push:
     branches: [ main, master ]
-    paths:
-      - 'pi/**'
+    paths: [ 'pi/**' ]
   pull_request:
-    paths:
-      - 'pi/**'
+    paths: [ 'pi/**' ]
   workflow_dispatch:
 
 jobs:
@@ -16,39 +14,41 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Nix
+      - name: Install Nix + aarch64 emulation
         uses: cachix/install-nix-action@v30
         with:
           nix_path: nixpkgs=channel:nixos-25.05
           extra_nix_config: |
             experimental-features = nix-command flakes
             max-jobs = auto
-            cores = 0
+            system = x86_64-linux
+            extra-platforms = aarch64-linux
+            substituters = https://cache.nixos.org https://your-cachix-name.cachix.org
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= your-cachix-name.cachix.org-1:...
 
       - name: Setup Cachix
         uses: cachix/cachix-action@v15
         with:
-          name: dawidde-nixos
+          name: your-cachix-name
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Build SD Image
         working-directory: ./pi
         run: |
-          nix build .#sd-image \
+          nix build .#packages.x86_64-linux.sd-image \
             --print-out-paths \
-            --no-link \
-            -L
+            -L \
+            --no-link
 
-      - name: Copy & Compress Image
+      - name: Copy and Compress Image
         working-directory: ./pi
         run: |
           mkdir -p ../artifact
-          # Copy the compressed image if available, otherwise compress it
-          if ls result/sd-image/*.img.zst > /dev/null 2>&1; then
+          if ls result/sd-image/*.img.zst >/dev/null 2>&1; then
             cp result/sd-image/*.img.zst ../artifact/
           else
             cp result/sd-image/*.img ../artifact/
-            zstd -T0 -19 --rm ../artifact/*.img
+            zstd -T0 -19 -v --rm ../artifact/*.img
           fi
           ls -lh ../artifact/
 
