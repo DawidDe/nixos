@@ -2,6 +2,12 @@ name: Build Pi Image
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'pi/**'
+      - '.github/workflows/**'
 
 jobs:
   build:

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
+    (modulesPath + "/installer/sd-card/sd-image-aarch64.nix")
 
     ./locale.nix
     ./pkgs.nix
