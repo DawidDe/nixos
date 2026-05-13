@@ -1,10 +1,8 @@
-name: Build NixOS RPi4 SD Image
+name: Build RPi4 NixOS Image
 
 on:
   push:
     branches: [ main, master ]
-    paths: [ 'pi/**' ]
-  pull_request:
     paths: [ 'pi/**' ]
   workflow_dispatch:
 
@@ -14,42 +12,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Nix + aarch64 emulation
+      - name: Install Nix
         uses: cachix/install-nix-action@v30
         with:
-          nix_path: nixpkgs=channel:nixos-25.05
           extra_nix_config: |
             experimental-features = nix-command flakes
             max-jobs = auto
-            system = x86_64-linux
-            extra-platforms = aarch64-linux
-            substituters = https://cache.nixos.org https://dawidde-nixos.cachix.org
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dawidde-nixos.cachix.org-1:QNzqOkmZHSLymJ58PaYYCylxCQZ1eofLNSxwKUhTy2w=
+            cores = 0
 
       - name: Setup Cachix
         uses: cachix/cachix-action@v15
         with:
           name: dawidde-nixos
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        continue-on-error: true
 
-      - name: Build SD Image
+      - name: Build SD Image (Cross Compilation)
         working-directory: ./pi
         run: |
-          nix build .#packages.x86_64-linux.sd-image \
+          nix build .#sd-image \
             --print-out-paths \
             -L \
             --no-link
 
-      - name: Copy and Compress Image
+      - name: Prepare Artifact
         working-directory: ./pi
         run: |
           mkdir -p ../artifact
-          if ls result/sd-image/*.img.zst >/dev/null 2>&1; then
-            cp result/sd-image/*.img.zst ../artifact/
-          else
-            cp result/sd-image/*.img ../artifact/
-            zstd -T0 -19 -v --rm ../artifact/*.img
-          fi
+          cp result/sd-image/*.img* ../artifact/ 2>/dev/null || cp result/*.img* ../artifact/
           ls -lh ../artifact/
 
       - name: Upload Artifact

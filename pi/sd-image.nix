@@ -1,17 +1,21 @@
-# pi/sd-image.nix - Raspberry Pi 4 specific settings
+# pi/sd-image.nix - Raspberry Pi 4 specific configuration
 { config, lib, pkgs, ... }:
 
 {
   boot.loader.raspberryPi.enable = true;
   boot.loader.raspberryPi.version = 4;
 
-  # Very useful for SD cards
+  # Essential for SD card usage
   boot.growPartition = true;
 
   hardware.enableRedistributableFirmware = true;
+  hardware.deviceTree.enable = true;
 
-  # Optional but recommended for RPi4
+  # Use RPi4 optimized kernel
   boot.kernelPackages = pkgs.linuxPackages_rpi4;
 
-  # You can add more here later (zram, etc.)
+  # Optional but recommended performance tweaks
+  boot.tmp.useTmpfs = true;
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 50;
 }
