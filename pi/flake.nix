@@ -10,11 +10,19 @@
     system = "x86_64-linux";
   in {
     nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
+      system = system;
+
+      pkgs = import nixpkgs {
+        system = system;
+        crossSystem = {
+          system = "aarch64-linux";
+        };
+      };
 
       modules = [
         ./sd-image.nix
-        ({ modulesPath, ... }: {
+
+        ({ ... }: {
           nixpkgs.hostPlatform = "aarch64-linux";
         })
       ];
