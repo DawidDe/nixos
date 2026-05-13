@@ -1,4 +1,4 @@
-name: Build RPi4 NixOS Image
+name: Build RPi4 SD Image
 
 on:
   push:
@@ -23,23 +23,19 @@ jobs:
       - name: Setup Cachix
         uses: cachix/cachix-action@v15
         with:
-          name: dawidde-nixos
+          name: your-cachix-name
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
         continue-on-error: true
 
-      - name: Build SD Image (Cross Compilation)
+      - name: Build SD Image (Cross-compilation)
         working-directory: ./pi
-        run: |
-          nix build .#sd-image \
-            --print-out-paths \
-            -L \
-            --no-link
+        run: nix build .#sd-image -L --print-out-paths --no-link
 
-      - name: Prepare Artifact
+      - name: Prepare & Compress Artifact
         working-directory: ./pi
         run: |
           mkdir -p ../artifact
-          cp result/sd-image/*.img* ../artifact/ 2>/dev/null || cp result/*.img* ../artifact/
+          cp -v result/sd-image/*.img* ../artifact/ 2>/dev/null || true
           ls -lh ../artifact/
 
       - name: Upload Artifact

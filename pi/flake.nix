@@ -1,5 +1,5 @@
 {
-  description = "Raspberry Pi 4 NixOS SD Image";
+  description = "Raspberry Pi 4 NixOS SD Image - Cross Compiled";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -7,21 +7,18 @@
 
   outputs = { self, nixpkgs }:
     let
-      # Cross-compilation from x86_64 → aarch64 (fastest on GitHub)
-      system = "x86_64-linux";
-      crossSystem = "aarch64-linux";
-
-      nixosConfig = nixpkgs.lib.nixosSystem {
-        inherit system;
-        crossSystem = {
-          config = "aarch64-unknown-linux-gnu";
-        };
+      # Build machine (GitHub runner)
+      buildSystem = "x86_64-linux";
+    in
+    {
+      nixosConfigurations.rpi4 = nixpkgs.lib.nixosSystem {
+        system = buildSystem;   # Important: this is the build platform
 
         modules = [
-          # Official SD image for aarch64
+          # SD Image base
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
 
-          # Your main config
+          # Your configuration files
           ./configuration.nix
           ./hardware-configuration.nix
           ./locale.nix
@@ -30,25 +27,33 @@
           ./services/default.nix
           ./containers/default.nix
 
-          # RPi4 specific settings
+          # RPi4 specific
           ./sd-image.nix
+
+          # === Cross-compilation settings ===
+          {
+            nixpkgs.crossSystem = {
+              config = "aarch64-unknown-linux-gnu";
+            };
+
+            # Help with some packages that are picky about cross
+            nixpkgs.config.allowUnsupportedSystem = true;
+          }
         ];
       };
-    in
-    {
-      nixosConfigurations.rpi4 = nixosConfig;
 
-      # Best output for GitHub runners (cross-compiled)
-      packages.${system}.sd-image = nixosConfig.config.system.build.sdImage;
+      # Main output - build this
+      packages.${buildSystem}.sd-image =
+        self.nixosConfigurations.rpi4.config.system.build.sdImage;
 
-      # Convenience app
-      apps.${system}.build-image = {
+      # Convenience
+      apps.${buildSystem}.build-image = {
         type = "app";
-        program = toString (nixpkgs.legacyPackages.${system}.writeShellScript "build-rpi4" ''
+        program = toString (nixpkgs.legacyPackages.${buildSystem}.writeShellScript "build-rpi4" ''
           set -euo pipefail
-          echo "🚀 Building RPi4 SD image (cross-compilation)..."
-          nix build .#sd-image --print-out-paths -L
-          echo "✅ Image available in ./result/"
+          echo "🚀 Building RPi 4 SD image via cross-compilation..."
+          nix build .#sd-image -L --print-out-paths
+          echo "✅ Success! Image is in ./result/sd-image/"
         '');
       };
     };
