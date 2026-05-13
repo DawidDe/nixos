@@ -13,7 +13,7 @@
       system = "aarch64-linux";
 
       modules = [
-        ./pi/sd-image.nix
+        ./sd-image.nix
         ({ modulesPath, ... }: {
           nixpkgs.hostPlatform = "aarch64-linux";
         })
