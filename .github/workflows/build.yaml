@@ -23,8 +23,8 @@ jobs:
             max-jobs = auto
             system = x86_64-linux
             extra-platforms = aarch64-linux
-            substituters = https://cache.nixos.org https://your-cachix-name.cachix.org
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= your-cachix-name.cachix.org-1:...
+            substituters = https://cache.nixos.org https://dawidde-nixos.cachix.org
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= dawidde-nixos.cachix.org-1:QNzqOkmZHSLymJ58PaYYCylxCQZ1eofLNSxwKUhTy2w=
 
       - name: Setup Cachix
         uses: cachix/cachix-action@v15
