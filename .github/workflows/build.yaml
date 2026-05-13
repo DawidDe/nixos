@@ -29,7 +29,7 @@ jobs:
       - name: Setup Cachix
         uses: cachix/cachix-action@v15
         with:
-          name: your-cachix-name
+          name: dawidde-nixos
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Build SD Image
