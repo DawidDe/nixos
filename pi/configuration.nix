@@ -2,7 +2,6 @@
 
 {
   imports =[
-    ./hardware-configuration.nix
     ./locale.nix
     ./pkgs.nix
     ./user.nix
