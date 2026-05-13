@@ -1,0 +1,62 @@
+name: Build NixOS SD Image
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-sd-image:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v16
+        with:
+          name: dawidde-nixos
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Enable flakes and nix-command
+        run: |
+          mkdir -p ~/.config/nix
+          cat > ~/.config/nix/nix.conf <<EOF
+          experimental-features = nix-command flakes
+          extra-platforms = aarch64-linux
+          EOF
+
+      - name: Build SD image
+        run: |
+          nix-build \
+            '<nixpkgs/nixos>' \
+            -A config.system.build.sdImage \
+            -I nixos-config=./pi/sd-image.nix
+
+      - name: Push build result to Cachix
+        run: |
+          cachix push YOUR-CACHIX-NAME ./result
+        if: github.event_name != 'pull_request'
+
+      - name: Prepare artifact
+        run: |
+          mkdir -p artifacts
+          find result/sd-image -type f \( -name "*.img" -o -name "*.img.zst" \) -exec cp {} artifacts/ \;
+
+      - name: Upload SD image
+        uses: actions/upload-artifact@v4
+        with:
+          name: nixos-sd-image
+          path: artifacts/
+          retention-days: 14
