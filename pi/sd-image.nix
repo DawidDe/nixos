@@ -1,16 +1,17 @@
-{ config, lib, pkgs, modulesPath, ... }:
+# sd-image.nix - Extra Raspberry Pi 4 specific tweaks
+{ config, lib, pkgs, ... }:
 
 {
-  imports = [
-    (modulesPath + "/installer/sd-card/sd-image-aarch64.nix")
+  # Optional: extra firmware / boot tweaks if needed
+  boot.loader.raspberryPi.enable = lib.mkDefault true;  # Often already handled by sd-image-aarch64
+  boot.loader.raspberryPi.version = lib.mkDefault 4;
 
-    ./locale.nix
-    ./pkgs.nix
-    ./user.nix
-    ./services/default.nix
-    ./containers/default.nix
-  ];
+  # Expand root on first boot (very useful)
+  boot.growPartition = true;
 
-  nixpkgs.hostPlatform = "aarch64-linux";
-  system.stateVersion = "25.11";
+  # Optional optimizations for RPi4
+  hardware.enableRedistributableFirmware = true;
+
+  # Example: more swap or zram if your config is heavy
+  # zramSwap.enable = true;
 }
