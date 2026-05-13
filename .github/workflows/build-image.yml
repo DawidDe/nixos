@@ -9,38 +9,39 @@ on:
 jobs:
   build-sd-image:
     runs-on: ubuntu-latest
+    timeout-minutes: 360
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Cachix
         uses: cachix/cachix-action@v16
         with:
           name: dawidde-nixos
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          skipPush: true
 
       - name: Build SD image
         run: |
           nix-build \
-            -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixos-25.11.tar.gz \
+            -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz \
             '<nixpkgs/nixos>' \
             -A config.system.build.sdImage \
             -I nixos-config=./pi/sd-image.nix
 
-      - name: Push build result to Cachix
+      - name: Push closure to Cachix
         if: github.event_name != 'pull_request'
-        run: cachix push dawidde-nixos ./result
+        run: |
+          nix path-info -r ./result | cachix push dawidde-nixos
 
       - name: Collect image
         run: |
           mkdir -p artifacts
-          find result/sd-image -name "*.img*" -exec cp {} artifacts/ \;
+          find result -type f -name "*.img*" -exec cp {} artifacts/ \;
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
