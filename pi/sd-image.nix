@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
   imports = [
-    "${pkgs.path}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+    (modulesPath + "/installer/sd-card/sd-image-aarch64.nix")
 
     ./locale.nix
     ./pkgs.nix

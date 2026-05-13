@@ -1,5 +1,5 @@
 {
-  description = "Pi image";
+  description = "NixOS Pi SD image";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -15,7 +15,7 @@
       modules = [
         ./sd-image.nix
 
-        ({ ... }: {
+        ({ modulesPath, ... }: {
           nixpkgs.hostPlatform = "aarch64-linux";
         })
       ];
