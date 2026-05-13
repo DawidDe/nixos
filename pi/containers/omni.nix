@@ -11,7 +11,7 @@
   virtualisation.oci-containers = {
     backend = "docker";
     containers = {
-      vault = {
+      omni = {
         image = "ghcr.io/siderolabs/omni:latest";
         user = "1003:1003";
         volumes = [
