@@ -1,0 +1,27 @@
+name: Build Pi Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: pi
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v31
+
+      - name: Build image
+        run: |
+          nix build .#nixosConfigurations.pi.config.system.build.sdImage
+
+      - name: Upload image
+        uses: actions/upload-artifact@v4
+        with:
+          name: nixos-pi-image
+          path: pi/result/sd-image/*

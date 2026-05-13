@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =[
+  imports = [
     <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
-    ./hardware-configuration.nix
+
     ./locale.nix
     ./pkgs.nix
     ./user.nix
@@ -11,5 +11,6 @@
     ./containers/default.nix
   ];
 
+  nixpkgs.hostPlatform = "aarch64-linux";
   system.stateVersion = "25.11";
 }

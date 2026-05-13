@@ -3,4 +3,6 @@
 {
   # Enable NetworkManager
   networking.networkmanager.enable = true;
+
+  networking.hostName = "pi";
 }
