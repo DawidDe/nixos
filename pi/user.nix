@@ -15,6 +15,7 @@
     pocket-id.gid = 1002;
     vault.gid = 1003;
     omni.gid = 1004;
+    cloudflare-ddns.gid = 1005;
   };
 
   users.users = {
