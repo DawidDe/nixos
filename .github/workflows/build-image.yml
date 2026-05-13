@@ -28,7 +28,7 @@ jobs:
       - name: Build SD image
         run: |
           nix-build \
-            -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz \
+            -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixos-25.11.tar.gz \
             '<nixpkgs/nixos>' \
             -A config.system.build.sdImage \
             -I nixos-config=./pi/sd-image.nix
