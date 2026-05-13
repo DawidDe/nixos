@@ -1,5 +1,5 @@
 {
-  description = "NixOS Pi SD image";
+  description = "Pi image";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -8,21 +8,19 @@
   outputs = { self, nixpkgs, ... }:
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
   in {
+    nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+
+      modules = [
+        ./pi/sd-image.nix
+        ({ modulesPath, ... }: {
+          nixpkgs.hostPlatform = "aarch64-linux";
+        })
+      ];
+    };
+
     packages.x86_64-linux.sd-image =
-      (nixpkgs.lib.nixosSystem {
-        systen = "aarch64-linux";
-
-        modules = [
-          ./sd-image.nix
-
-          ({ modulesPath, ... }: {
-            nixpkgs.hostPlatform = "aarch64-linux";
-          })
-        ];
-      }).config.system.build.sdImage;
+      self.nixosConfigurations.pi.config.system.build.sdImage;
   };
 }

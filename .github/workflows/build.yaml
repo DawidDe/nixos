@@ -24,7 +24,7 @@ jobs:
 
       - name: Build image
         run: |
-          nix build .#nixosConfigurations.pi.config.system.build.sdImage
+          nix build .#sd-image
 
       - name: Upload image
         uses: actions/upload-artifact@v4
