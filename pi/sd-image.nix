@@ -3,29 +3,29 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
-    
     ./configuration.nix
   ];
 
-  # === SD Image specific settings ===
+  # Remove the hardware.raspberrypi block that caused the error
+
+  # SD Image settings
   sdImage = {
-    compressImage = false;           # Easier to flash directly
-    # imageBaseName = "nixos-pi-custom";  # Optional
+    compressImage = false;   # easier to flash
+    imageBaseName = "nixos-pi-custom";
   };
 
-  # Bootloader / Raspberry Pi specifics
+  # Bootloader for Raspberry Pi
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  # Hardware for common Pis (adjust if needed)
-  hardware = {
-    raspberrypi = {
-      # enable or specific config depending on your Pi model
-    };
-  };
+  # Important for Raspberry Pi
+  hardware.enableRedistributableFirmware = true;
+  # hardware.deviceTree.enable = true;   # usually enabled by the sd-image module
 
-  # Optional: bigger firmware partition if you have lots of DTBs / custom kernel
-  # sdImage.firmwareSize = 512;  # in MiB
+  # Optional but recommended
+  boot.kernelParams = [
+    "console=ttyAMA0,115200"   # for serial console / early boot logs
+  ];
 
   system.stateVersion = "25.11";
 }
