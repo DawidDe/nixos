@@ -13,9 +13,7 @@
       inherit system;
 
       modules = [
-        (nixpkgs.lib.nixosModules.sdImage)
-
-        ./pi/sd-image.nix
+        ./sd-image.nix
 
         ({ ... }: {
           nixpkgs.hostPlatform = "aarch64-linux";
