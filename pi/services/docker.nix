@@ -2,6 +2,6 @@
 
 {
   # Enable Docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
   virtualisation.docker.enableOnBoot = true;
 }
