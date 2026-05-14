@@ -5,6 +5,6 @@
     ./networkmanager.nix
     ./firewall.nix
     ./ssh.nix
-    ./docker.nix
+    ./podman.nix
   ];
 }
