@@ -2,5 +2,5 @@
 
 {
   # Enable Podman
-  virtualisation.podman.enable = false;
+  virtualisation.podman.enable = true;
 }
