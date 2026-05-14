@@ -8,7 +8,7 @@
   ];
 
   virtualisation.oci-containers = {
-    backend = "docker";
+    backend = "podman";
     containers = {
       pocket-id = {
         image = "ghcr.io/pocket-id/pocket-id:v2";

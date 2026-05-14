@@ -9,7 +9,7 @@
   ];
 
   virtualisation.oci-containers = {
-    backend = "docker";
+    backend = "podman";
     containers = {
       omni = {
         image = "ghcr.io/siderolabs/omni:latest";

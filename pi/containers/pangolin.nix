@@ -11,7 +11,7 @@
     ];
 
   virtualisation.oci-containers = {
-    backend = "docker";
+    backend = "podman";
     containers = {
       pangolin = {
         image = "fosrl/pangolin:ee-latest";

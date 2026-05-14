@@ -8,7 +8,7 @@
   ];
 
   virtualisation.oci-containers = {
-    backend = "docker";
+    backend = "podman";
     containers = {
       vault = {
         image = "hashicorp/vault:latest";

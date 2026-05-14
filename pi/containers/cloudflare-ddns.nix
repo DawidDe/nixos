@@ -6,7 +6,7 @@
   ];
 
   virtualisation.oci-containers = {
-    backend = "docker";
+    backend = "podman";
     containers = {
       cloudflare-ddns = {
         image = "timothyjmiller/cloudflare-ddns:latest";
