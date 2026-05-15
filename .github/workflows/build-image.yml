@@ -48,8 +48,8 @@ jobs:
             '<nixpkgs/nixos>' \
             -A config.system.build.sdImage \
             -I nixos-config=./pi/sd-image.nix \
-            -L \
-            --show-trace
+            --show-trace \
+            -vv
 
       # Push everything built to Cachix
       - name: Push build closure to Cachix
