@@ -2,7 +2,8 @@ name: Build NixOS SD Image
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
   workflow_dispatch:
 
@@ -11,40 +12,63 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
 
+    permissions:
+      contents: read
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Better Nix installer
       - name: Install Nix
-        uses: cachix/install-nix-action@v31
+        uses: DeterminateSystems/nix-installer-action@main
 
+      # Massive cache improvement for GitHub Actions
+      - name: Setup Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      # Your personal Cachix cache
       - name: Setup Cachix
+        if: github.event_name != 'pull_request'
         uses: cachix/cachix-action@v16
         with:
           name: dawidde-nixos
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          skipPush: true
 
+      # Debugging: verify substitutes are active
+      - name: Show Nix config
+        run: |
+          nix show-config | grep substituters
+          nix show-config | grep trusted-public-keys
+
+      # Build with logs
       - name: Build SD image
         run: |
           nix-build \
-            -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixos-25.11.tar.gz \
             '<nixpkgs/nixos>' \
             -A config.system.build.sdImage \
-            -I nixos-config=./pi/sd-image.nix
+            -I nixos-config=./pi/sd-image.nix \
+            -L \
+            --show-trace
 
-      - name: Push closure to Cachix
+      # Push everything built to Cachix
+      - name: Push build closure to Cachix
         if: github.event_name != 'pull_request'
         run: |
           nix path-info -r ./result | cachix push dawidde-nixos
 
+      # Collect image
       - name: Collect image
         run: |
           mkdir -p artifacts
-          find result -type f -name "*.img*" -exec cp {} artifacts/ \;
+          find result -type f \( -name "*.img" -o -name "*.img.zst" -o -name "*.img.gz" \) \
+            -exec cp {} artifacts/ \;
 
+      # Upload image artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: nixos-sd-image
           path: artifacts/
+          if-no-files-found: error
+          retention-days: 7
