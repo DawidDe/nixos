@@ -61,8 +61,12 @@ jobs:
       - name: Collect image
         run: |
           mkdir -p artifacts
-          find result -type f \( -name "*.img" -o -name "*.img.zst" -o -name "*.img.gz" \) \
+
+          find -L result -type f \
+            \( -iname "*.img" -o -iname "*.img.zst" -o -iname "*.img.gz" \) \
             -exec cp {} artifacts/ \;
+
+          ls -lah artifacts
 
       # Upload image artifact
       - name: Upload artifact
