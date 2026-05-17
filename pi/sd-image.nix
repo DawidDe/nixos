@@ -6,5 +6,7 @@
     ./configuration.nix
   ];
 
-  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
+  nixpkgs.crossSystem = {
+    system = "aarch64-linux";
+  };
 }
