@@ -6,6 +6,8 @@
     ./services/ssh.nix
   ];
 
+  system.stateVersion = "25.11";
+
   nixpkgs.crossSystem = {
     system = "aarch64-linux";
   };
