@@ -2,6 +2,7 @@
 
 {
   imports =[
+    ./bootloader.nix
     ./locale.nix
     ./pkgs.nix
     ./user.nix
