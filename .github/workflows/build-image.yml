@@ -51,12 +51,6 @@ jobs:
             --show-trace \
             -vv
 
-      # Push everything built to Cachix
-      - name: Push build closure to Cachix
-        if: github.event_name != 'pull_request'
-        run: |
-          nix path-info -r ./result | cachix push dawidde-nixos
-
       # Collect image
       - name: Collect image
         run: |
