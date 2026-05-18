@@ -23,10 +23,6 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
 
-      # Massive cache improvement for GitHub Actions
-      - name: Setup Magic Nix Cache
-        uses: DeterminateSystems/magic-nix-cache-action@main
-
       # Your personal Cachix cache
       - name: Setup Cachix
         if: github.event_name != 'pull_request'
