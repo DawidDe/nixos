@@ -1,6 +1,8 @@
 { config, lib, pkgs, basalt, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     # ── Core / System ─────────────────────────────────────────
     bash
