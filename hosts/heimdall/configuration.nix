@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./packages.nix
 
     # Shared system modules
     ../../modules/system/locale.nix
@@ -23,11 +24,6 @@
 
   # Host-specific configurations
   networking.hostName = "heimdall";
-
-  environment.systemPackages = with pkgs; [
-    nano
-    htop
-  ];
 
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";

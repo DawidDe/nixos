@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
+    ./packages.nix
 
     # Shared system modules
     ../../modules/system/locale.nix
@@ -35,12 +36,6 @@
     systemd.enable = true;
     kernelModules = [ "dm_thin_pool" ];
   };
-
-  environment.systemPackages = with pkgs; [
-    nano
-    htop
-    zfs
-  ];
 
   system.stateVersion = "26.05";
 }

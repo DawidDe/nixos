@@ -18,6 +18,8 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    basalt.url = "github:MegalithOfficial/basalt-launcher";
   };
 
   outputs = { self, nixpkgs, disko, nixos-hardware, sops-nix, ...}@inputs: {

@@ -1,6 +1,8 @@
 { config, lib, pkgs, ...}:
 {
   imports = [
+    ./packages.nix
+
     # Shared system modules
     ../../modules/system/locale.nix
     ../../modules/system/users.nix
@@ -20,11 +22,6 @@
     "sdhci"
     "sdhci_iproc"
     "bcm2835_dma"
-  ];
-
-  environment.systemPackages = with pkgs; [
-    nano
-    htop
   ];
 
   sops = {
