@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "basalt": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1789120902,
+        "narHash": "sha256-vsJJJHuLfC7S6bl/td7V+NXYTvSGR395eo42gKv+DcI=",
+        "owner": "MegalithOfficial",
+        "repo": "basalt-launcher",
+        "rev": "36b4f165e0bd7a11eec5a6da5d156d5661f8b11a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MegalithOfficial",
+        "repo": "basalt-launcher",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -43,6 +61,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1786384358,
+        "narHash": "sha256-RzPPiWeUtuvymnpuEWsdtzli5w4kjZs49FqEs3/1u+I=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2fcb964de67fcf60b43471c55d5d99e61a9ccb5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1789426278,
         "narHash": "sha256-GnotcvKtbTMnoVx6G4E7ZdUX6487Dky74dqq3pU7iRk=",
         "owner": "nixos",
@@ -59,9 +93,10 @@
     },
     "root": {
       "inputs": {
+        "basalt": "basalt",
         "disko": "disko",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "sops-nix": "sops-nix"
       }
     },
