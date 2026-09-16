@@ -22,6 +22,16 @@
 
   outputs = { self, nixpkgs, disko, nixos-hardware, sops-nix, ...}@inputs: {
     nixosConfigurations = {
+      odin = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+
+        modules = [
+          disko.nixosModules.disko
+          ./hosts/odin/configuration.nix
+        ];
+      };
+
       heimdall = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -32,7 +42,7 @@
         ];
       };
 
-      pi-image = nixpkgs.lib.nixosSystem {
+      pi-image = nixpkgs.lib.ni{ config, lib, pkgs, ... }:xosSystem {
         system = "aarch64-linux";
         specialArgs = { inherit inputs; };
 
