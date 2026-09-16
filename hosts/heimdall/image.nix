@@ -10,7 +10,7 @@
     ../../modules/services/ssh.nix
   ];
 
-  networking.hostName = "pi";
+  networking.hostName = "heimdall";
 
   hardware.raspberry-pi.firmware.uboot.enable = true;
 

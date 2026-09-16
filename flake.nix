@@ -32,17 +32,17 @@
         ];
       };
 
-      heimdall = nixpkgs.lib.nixosSystem {
+      thor = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
 
         modules = [
           disko.nixosModules.disko
-          ./hosts/heimdall/configuration.nix
+          ./hosts/thor/configuration.nix
         ];
       };
 
-      pi-image = nixpkgs.lib.nixosSystem {
+      heimdall-image = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = { inherit inputs; };
 
@@ -50,18 +50,18 @@
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
           nixos-hardware.nixosModules.raspberry-pi-4
           sops-nix.nixosModules.sops
-          ./hosts/pi/image.nix
+          ./hosts/heimdall/image.nix
         ];
       };
 
-      pi = nixpkgs.lib.nixosSystem {
+      heimdall = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = { inherit inputs; };
 
         modules = [
           nixos-hardware.nixosModules.raspberry-pi-4
           sops-nix.nixosModules.sops
-          ./hosts/pi/configuration.nix
+          ./hosts/heimdall/configuration.nix
         ];
       };
     };

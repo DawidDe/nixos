@@ -1,17 +1,24 @@
-# Do not modify this file directly; hardware scanning rules are defined here.
-# Filesystems, swap, and disk partitioning are managed via Disko.
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, ...}:
 
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot/firmware" = {
+    device = "/dev/disk/by-uuid/2178-694E";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  hardware.raspberry-pi.firmware.uboot.enable = true;
+
+  boot.initrd.includeDefaultModules = false;
+  boot.initrd.availableKernelModules = lib.mkForce [
+    "mmc_block"
+    "sdhci"
+    "sdhci_iproc"
+    "bcm2835_dma"
   ];
-
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "ehci_pci" "megaraid_sas" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

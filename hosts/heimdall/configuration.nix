@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./disko-config.nix
 
     # Shared system modules
     ../../modules/system/locale.nix
@@ -12,35 +11,54 @@
     # Shared services modules
     ../../modules/services/firewall.nix
     ../../modules/services/ssh.nix
-    ../../modules/services/incus.nix
-    ../../modules/services/lvm.nix
     ../../modules/services/podman.nix
+
+    # Container modules
+    ../../modules/containers/ddns.nix
+    ../../modules/containers/omni.nix
+    ../../modules/containers/pangolin.nix
+    ../../modules/containers/pocket-id.nix
+    ../../modules/containers/vault.nix
   ];
 
   # Host-specific configurations
   networking.hostName = "heimdall";
 
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    device = "nodev";
-  };
-
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
-    efiSysMountPoint = "/boot";
-  };
-
-  boot.initrd = {
-    systemd.enable = true;
-    kernelModules = [ "dm_thin_pool" ];
-  };
-
   environment.systemPackages = with pkgs; [
     nano
     htop
-    zfs
   ];
+
+  sops = {
+    age.keyFile = "/var/lib/sops-nix/key.txt";
+    age.generateKey = false;
+
+    secrets = {
+      "ddns-env" = {
+        sopsFile = ../../secrets/ddns.env;
+        format = "dotenv";
+      };
+      "pangolin-env" = {
+        sopsFile = ../../secrets/pangolin.env;
+        format = "dotenv";
+      };
+      "pocket-id-env" = {
+        sopsFile = ../../secrets/pocket-id.env;
+        format = "dotenv";
+      };
+      "omni-config" = {
+        sopsFile = ../../secrets/omni.yaml;
+        format = "yaml";
+        key = "";
+      };
+      "omni-key" = {
+        sopsFile = ../../secrets/omni.asc;
+        format = "binary";
+        owner = "omni";
+        group = "omni";
+      };
+    };
+  };
 
   system.stateVersion = "26.05";
 }
