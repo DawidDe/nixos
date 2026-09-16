@@ -42,7 +42,7 @@
         ];
       };
 
-      pi-image = nixpkgs.lib.ni{ config, lib, pkgs, ... }:xosSystem {
+      pi-image = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = { inherit inputs; };
 
