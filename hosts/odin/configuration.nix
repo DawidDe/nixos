@@ -11,7 +11,7 @@
 
     # Shared services modules
     ../../modules/services/firewall.nix
-    ../../modules/services/printing.nix
+    ../../modules/services/cups.nix
     ../../modules/services/pipewire.nix
     ../../modules/services/greetd.nix
     ../../modules/services/xdg-portal.nix
