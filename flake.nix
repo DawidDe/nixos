@@ -28,7 +28,7 @@
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
-          basalt = basalt;
+          basalt = inputs.basalt;
           };
 
         modules = [
