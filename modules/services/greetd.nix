@@ -5,7 +5,7 @@
     enable = true;
   };
 
-  services.regreet = {
+  programs.regreet = {
     enable = true;
   };
 }
