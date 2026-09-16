@@ -26,7 +26,10 @@
     nixosConfigurations = {
       odin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          basalt = basalt;
+          };
 
         modules = [
           disko.nixosModules.disko
