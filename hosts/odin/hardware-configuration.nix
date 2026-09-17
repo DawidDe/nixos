@@ -12,12 +12,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  
-  fileSystems."/home" = {
-    device = "/dev/disk/by-id/nvme-KINGSTON_SNV2S2000G_50026B7382B118EA-part3";
-    fsType = "ext4";
-    options = [ "defaults" "noatime" ];
-  }; 
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

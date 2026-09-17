@@ -2,14 +2,14 @@
   disko.devices = {
     disk = {
       main = {
-        type = "disk";
         device = "/dev/disk/by-id/nvme-KINGSTON_SNV2S2000G_50026B7382B118EA";
+        type = "disk";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
+              name = "boot";
               type = "EF00";
-              size = "1G";
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -18,11 +18,19 @@
               };
             };
             root = {
-              size = "200G";
+              name = "root";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+              };
+            };
+            home = {
+              name = "home";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/home";
               };
             };
           };
