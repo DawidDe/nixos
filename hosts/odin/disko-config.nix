@@ -26,7 +26,7 @@
               };
             };
             home = {
-              number = 3;
+              _index = 3;
               content = {
                 type = "filesystem";
                 format = "ext4";
