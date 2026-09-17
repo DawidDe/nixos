@@ -25,15 +25,6 @@
                 mountpoint = "/";
               };
             };
-            home = {
-              _index = 3;
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/home";
-                mountOptions = [ "defaults" "noatime" ];
-              };
-            };
           };
         };
       };
