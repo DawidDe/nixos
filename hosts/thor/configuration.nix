@@ -16,6 +16,7 @@
     ../../modules/services/incus.nix
     ../../modules/services/lvm.nix
     ../../modules/services/podman.nix
+    ../../modules/services/smb.nix
   ];
 
   # Host-specific configurations
