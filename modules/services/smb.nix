@@ -3,5 +3,7 @@
 {
   services.samba = {
     enable = true;
+    
+    smbd.enable = true;
   };
 }
