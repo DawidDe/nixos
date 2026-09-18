@@ -3,5 +3,5 @@
 {
   services.samba = {
     enable = true;
-  }
+  };
 }
