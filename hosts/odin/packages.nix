@@ -67,6 +67,7 @@
     # ── Gaming ────────────────────────────────────────────────
     steam
     satisfactorymodmanager
+    alvr
 
     # ── Security / VPN / Passwords ───────────────────────────
     proton-vpn-cli
