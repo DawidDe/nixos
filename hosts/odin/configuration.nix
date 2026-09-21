@@ -20,7 +20,7 @@
     ../../modules/services/polkit.nix
     ../../modules/services/hyprland.nix
     ../../modules/services/keyring.nix
-    ../../modules/services/wivrn.nix
+    ../../modules/services/vr.nix
   ];
 
   # Host-specific configurations

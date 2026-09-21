@@ -5,5 +5,5 @@
         enable = true;
 
         autoStart = true;
-    }
+    };
 }
