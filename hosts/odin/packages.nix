@@ -17,6 +17,7 @@
     hyprlauncher
     quickshell
     kitty
+    hyprpolkitagent
     hyprshot
     gtk3
     gtk4
