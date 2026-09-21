@@ -68,6 +68,7 @@
     # ── Gaming ────────────────────────────────────────────────
     steam
     satisfactorymodmanager
+    bs-manager
 
     # ── Security / VPN / Passwords ───────────────────────────
     proton-vpn-cli
