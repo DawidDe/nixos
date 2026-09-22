@@ -30,6 +30,7 @@
     vscodium
     superfile
     drawio
+    antigravity
     basalt.packages.x86_64-linux.basalt-launcher-dev
 
     # ── Development / Programming ────────────────────────────
