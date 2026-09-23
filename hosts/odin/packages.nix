@@ -30,7 +30,7 @@
     vscodium
     superfile
     drawio
-    antigravity
+    yubioath-flutter
     basalt.packages.x86_64-linux.basalt-launcher-dev
 
     # ── Development / Programming ────────────────────────────
