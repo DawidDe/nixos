@@ -17,6 +17,7 @@
     ../../modules/services/lvm.nix
     ../../modules/services/podman.nix
     ../../modules/services/smb.nix
+    ../../modules/services/cron.nix
   ];
 
   # Host-specific configurations
