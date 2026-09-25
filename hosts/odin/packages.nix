@@ -49,6 +49,7 @@
     talosctl
     termius
     opentofu
+    incus
 
     # ── Android / Waydroid ────────────────────────────────────
     android-tools

@@ -26,6 +26,13 @@
   # Host-specific configurations
   networking.hostName = "odin";
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
