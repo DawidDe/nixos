@@ -68,6 +68,7 @@
 
     # ── Gaming ────────────────────────────────────────────────
     steam
+    heroic
     satisfactorymodmanager
     bs-manager
 
