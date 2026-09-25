@@ -50,6 +50,7 @@
     termius
     opentofu
     incus
+    remmina
 
     # ── Android / Waydroid ────────────────────────────────────
     android-tools
