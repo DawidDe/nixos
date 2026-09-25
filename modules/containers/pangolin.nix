@@ -4,6 +4,10 @@
   systemd.tmpfiles.rules = [
     "d /opt/pangolin 0700 pangolin pangolin -"
     "d /opt/pangolin/config 0700 pangolin pangolin -"
+    "d /opt/pangolin/db 0700 pangolin pangolin -"
+    "d /opt/pangolin/letsencrypt 0700 pangolin pangolin -"
+    "d /opt/pangolin/traefik 0700 pangolin pangolin -"
+    "d /opt/pangolin/traefik/logs 0700 pangolin pangolin -"
   ];
 
   virtualisation.oci-containers.containers.pangolin = {
