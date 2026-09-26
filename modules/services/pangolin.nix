@@ -12,6 +12,8 @@
     baseDomain = "dawidde.de";
     dashboardDomain = "pangolin.dawidde.de";
 
+    letsEncryptEmail = "dawidimb@proton.me";
+
     environmentFile = config.sops.secrets."pangolin-env".path;
   };
 }
