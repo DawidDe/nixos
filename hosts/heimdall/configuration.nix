@@ -29,6 +29,7 @@
     enable = lib.mkForce false;
     uboot.enable = lib.mkForce false;
   };
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
 
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
