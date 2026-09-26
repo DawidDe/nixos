@@ -16,6 +16,7 @@
     ../../modules/services/cloudflare-ddns.nix
     ../../modules/services/openbao.nix
     ../../modules/services/pangolin.nix
+    ../../modules/services/newt.nix
     #../../modules/services/pocket-id.nix
   ];
 
