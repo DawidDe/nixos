@@ -1,7 +1,7 @@
 { config, lib, pkgs, ...}:
 
 {
-  config.sops.secrets."pocket-id-env" = {
+  sops.secrets."pocket-id-env" = {
     sopsFile = ../../secrets/pocket-id.env;
     format = "dotenv";
   };
