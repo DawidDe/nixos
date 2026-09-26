@@ -5,6 +5,6 @@
     enable = true;
 
     storageBackend = "file";
-    storagePath = "/vault/data"
+    storagePath = "/vault/data";
   };
 }
