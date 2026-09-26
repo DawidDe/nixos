@@ -3,7 +3,7 @@
 {
   sops.secrets = {
     cloudflare-ddns = {
-      sopsFile = ../../secrets/ddns.yaml
+      sopsFile = ../../secrets/ddns.yaml;
     };
   };
 
