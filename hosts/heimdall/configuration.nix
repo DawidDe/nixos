@@ -27,6 +27,7 @@
     uboot.enable = lib.mkForce false;
   };
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
+  boot.kernel.sysctl."vm.mmap_rnd_bits" = lib.mkForce 18;
 
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
