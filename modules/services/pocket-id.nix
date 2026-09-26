@@ -29,6 +29,6 @@
       LDAP_ENABLED=false;
     };
 
-    environmentFile = config.sops.secrets"pocket-id-env".path
+    environmentFile = config.sops.secrets"pocket-id-env".path;
   };
 }
