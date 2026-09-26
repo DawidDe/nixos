@@ -3,6 +3,7 @@
 {
   sops.secrets.omni-key = {
     sopsFile = ../../secrets/omni.asc;
+    key = "";
   };
 
   sops.secrets.omni-config = {
@@ -26,7 +27,7 @@
     };
     volumes = [
       "${config.sops.secrets."omni-key".path}:/omni.asc:ro"
-      "${config.sops.secrets."omni-config".path}:/.config.yaml:ro"
+      "${config.sops.secrets."omni-config".path}:/config.yaml:ro"
       "/opt/omni/sqlite:/_out/sqlite:rw"
       "/opt/omni/etcd:/_out/etcd:rw"
     ];
