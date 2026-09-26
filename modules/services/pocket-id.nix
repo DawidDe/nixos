@@ -11,7 +11,7 @@
 
     settings = {
       APP_NAME = "Pocket ID";
-      APP_URL = "https://pocket-id.domain.de/";
+      APP_URL = "https://pocket-id.domain.de";
       UI_CONFIG_DISABLED=true;
       SESSION_DURATION=60;
       HOME_PAGE_URL="/settings/apps";
