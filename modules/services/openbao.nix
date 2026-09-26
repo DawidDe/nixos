@@ -10,8 +10,6 @@
       listener.default = {
         type = "tcp";
       };
-
-      api
     };
   };
 }
