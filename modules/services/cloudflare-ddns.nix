@@ -1,7 +1,7 @@
 { config, lib, pkgs, ...}:
 
 {
-  config.sops.secrets."cloudflare-ddns-env" = {
+  sops.secrets."cloudflare-ddns-env" = {
     sopsFile = ../../secrets/cloudflare-ddns.env;
     format = "dotenv";
   };
