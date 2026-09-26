@@ -14,7 +14,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d /opt/openbao 0700 openbao openbao"
+    "d /opt/openbao 0777 openbao openbao"
   ];
 
   services.openbao = {
