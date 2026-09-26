@@ -2,7 +2,7 @@
 
 {
   systemd.tmpfiles.rules = [
-    "d /opt/omni 0700 omni omni -"
+    "d /opt/omni 0777 omni omni -"
   ];
 
   virtualisation.oci-containers.containers.omni = {
