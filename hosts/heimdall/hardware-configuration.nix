@@ -12,7 +12,6 @@
     options = [ "fmask=0022" "dmask=0022" ];
   };
 
-  hardware.raspberry-pi.firmware.uboot.enable = true;
 
   boot.initrd.includeDefaultModules = false;
   boot.initrd.availableKernelModules = lib.mkForce [

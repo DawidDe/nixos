@@ -13,35 +13,28 @@
     ../../modules/services/firewall.nix
     ../../modules/services/ssh.nix
     ../../modules/services/podman.nix
+    ../../modules/services/cloudflare-ddns.nix
+    ../../modules/services/vault.nix
+    ../../modules/services/pangolin.nix
+    ../../modules/services/pocket-id.nix
 
     # Container modules
-    ../../modules/containers/ddns.nix
     ../../modules/containers/omni.nix
-    ../../modules/containers/pangolin.nix
-    ../../modules/containers/pocket-id.nix
-    ../../modules/containers/vault.nix
   ];
 
   # Host-specific configurations
   networking.hostName = "heimdall";
+
+  hardware.raspberry-pi.firmware = {
+    enable = lib.mkForce false;          # no activation script
+    uboot.enable = lib.mkForce false;    # don’t pull the package
+  };
 
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
     age.generateKey = false;
 
     secrets = {
-      "ddns-env" = {
-        sopsFile = ../../secrets/ddns.env;
-        format = "dotenv";
-      };
-      "pangolin-env" = {
-        sopsFile = ../../secrets/pangolin.env;
-        format = "dotenv";
-      };
-      "pocket-id-env" = {
-        sopsFile = ../../secrets/pocket-id.env;
-        format = "dotenv";
-      };
       "omni-config" = {
         sopsFile = ../../secrets/omni.yaml;
         format = "yaml";
