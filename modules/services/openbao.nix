@@ -8,7 +8,7 @@
       ui = true;
 
       storage.raft = {
-        path = "/car/lib/openbao";
+        path = "/var/lib/openbao";
       };
 
       listener.default = {
