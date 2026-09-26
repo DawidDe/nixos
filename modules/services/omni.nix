@@ -1,6 +1,14 @@
 { config, lib, pkgs, ...}:
 
 {
+  sops.secrets.omni-key = {
+    sopsFile = ../../secrets/omni.asc;
+  };
+
+  sops.secrets.omni-config = {
+    sopsFile = ../../secrets/omni.asc;
+  };
+
   systemd.tmpfiles.rules = [
     "d /opt/omni 0777 omni omni -"
   ];
