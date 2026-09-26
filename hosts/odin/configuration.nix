@@ -21,6 +21,7 @@
     ../../modules/services/hyprland.nix
     ../../modules/services/keyring.nix
     ../../modules/services/vr.nix
+    ../../modules/services/pcscd.nix
   ];
 
   # Host-specific configurations
