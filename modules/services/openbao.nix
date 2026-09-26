@@ -24,12 +24,12 @@
       ui = true;
 
       storage.raft = {
-        path = "/opt/openbao"
+        path = "/opt/openbao";
       };
 
       listener.default = {
         type = "tcp";
-        address = "127.0.0.1:8200"
+        address = "127.0.0.1:8200";
       };
     };
   };
