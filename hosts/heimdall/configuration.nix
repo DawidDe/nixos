@@ -13,10 +13,10 @@
     ../../modules/services/firewall.nix
     ../../modules/services/ssh.nix
     ../../modules/services/podman.nix
-    ../../modules/services/cloudflare-ddns.nix
-    ../../modules/services/vault.nix
-    ../../modules/services/pangolin.nix
-    ../../modules/services/pocket-id.nix
+    #../../modules/services/cloudflare-ddns.nix
+    #../../modules/services/vault.nix
+    #../../modules/services/pangolin.nix
+    #../../modules/services/pocket-id.nix
 
     # Container modules
     ../../modules/containers/omni.nix
@@ -26,8 +26,8 @@
   networking.hostName = "heimdall";
 
   hardware.raspberry-pi.firmware = {
-    enable = lib.mkForce false;          # no activation script
-    uboot.enable = lib.mkForce false;    # don’t pull the package
+    enable = lib.mkForce false;
+    uboot.enable = lib.mkForce false;
   };
 
   sops = {
