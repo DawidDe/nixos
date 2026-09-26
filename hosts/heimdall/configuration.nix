@@ -13,7 +13,7 @@
     ../../modules/services/firewall.nix
     ../../modules/services/ssh.nix
     ../../modules/services/podman.nix
-    #../../modules/services/cloudflare-ddns.nix
+    ../../modules/services/cloudflare-ddns.nix
     #../../modules/services/vault.nix
     #../../modules/services/pangolin.nix
     #../../modules/services/pocket-id.nix
