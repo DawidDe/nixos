@@ -1,12 +1,15 @@
 { config, lib, pkgs, ...}:
 
 {
-  networking.firewall.extraInputRules = ''
-    iifname { "end0" } ip saddr 192.168.178.1 tcp dport 80 accept
-    iifname { "end0" } ip saddr 192.168.178.1 tcp dport 443 accept
-    iifname { "end0" } ip saddr 192.168.178.1 udp dport 21820 accept
-    iifname { "end0" } ip saddr 192.168.178.1 udp dport 51820 accept
-  '';
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    21820
+    51820
+  ];
 
   sops.secrets."pangolin-env" = {
     sopsFile = ../../secrets/pangolin.env;
