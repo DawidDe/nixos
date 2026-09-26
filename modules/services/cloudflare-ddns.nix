@@ -1,15 +1,14 @@
 { config, lib, pkgs, ...}:
 
 {
-  sops.secrets = {
-    cloudflare-ddns = {
-      sopsFile = ../../secrets/ddns.yaml;
-    };
+  config.sops.secrets."cloudflare-ddns-env" = {
+    sopsFile = ../../secrets/cloudflare-ddns.env;
+    format = "dotenv";
   };
 
   services.cloudflare-ddns = {
     enable = true;
-    credentialsFile = config.sops.secrets.cloudflare-ddns.path;
+    credentialsFile = config.sops.secrets.cloudflare-ddns-env.path;
 
     domains = [
       "dawidde.de"
