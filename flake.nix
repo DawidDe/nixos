@@ -2,7 +2,8 @@
   description = "A flake describing my Nixos systems.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     disko = {
       url = "github:nix-community/disko";
@@ -22,9 +23,9 @@
     basalt.url = "github:MegalithOfficial/basalt-launcher";
   };
 
-  outputs = { self, nixpkgs, disko, nixos-hardware, sops-nix, ...}@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, sops-nix, ...}@inputs: {
     nixosConfigurations = {
-      odin = nixpkgs.lib.nixosSystem {
+      odin = nixpkgs-unstable.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
