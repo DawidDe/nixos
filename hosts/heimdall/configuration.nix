@@ -15,7 +15,7 @@
     ../../modules/services/podman.nix
     ../../modules/services/cloudflare-ddns.nix
     ../../modules/services/openbao.nix
-    #../../modules/services/pangolin.nix
+    ../../modules/services/pangolin.nix
     #../../modules/services/pocket-id.nix
   ];
 

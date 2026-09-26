@@ -1,7 +1,7 @@
 { config, lib, pkgs, ...}:
 
 {
-  config.sops."pangolin-env" = {
+  sops."pangolin-env" = {
     sopsFile = ../../secrets/pangolin.env;
     format = "dotenv";
   };
