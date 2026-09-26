@@ -7,6 +7,7 @@
 
   sops.secrets.omni-config = {
     sopsFile = ../../secrets/omni.yaml;
+    key = "";
   };
 
   systemd.tmpfiles.rules = [
