@@ -1,22 +1,6 @@
 { config, lib, pkgs, ...}:
 
 {
-  users = {
-    users.openbao = {
-      isSystemUser = true;
-      group = "openbao";
-      uid = 1100;
-    };
-    
-    groups.openbao = {
-      gid = 1100;
-    };
-  };
-
-  systemd.tmpfiles.rules = [
-    "d /opt/openbao 0777 openbao openbao"
-  ];
-
   services.openbao = {
     enable = true;
 
@@ -24,7 +8,7 @@
       ui = true;
 
       storage.raft = {
-        path = "/opt/openbao";
+        path = "/car/lib/openbao";
       };
 
       listener.default = {
