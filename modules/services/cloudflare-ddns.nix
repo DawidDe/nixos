@@ -14,6 +14,6 @@
     domains = [
       "dawidde.de"
     ];
-    proxied = false;
+    proxied = "false";
   };
 }
