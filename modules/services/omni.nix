@@ -6,7 +6,7 @@
   };
 
   sops.secrets.omni-config = {
-    sopsFile = ../../secrets/omni.asc;
+    sopsFile = ../../secrets/omni.yaml;
   };
 
   systemd.tmpfiles.rules = [
