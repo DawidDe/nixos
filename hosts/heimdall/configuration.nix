@@ -17,7 +17,7 @@
     ../../modules/services/openbao.nix
     ../../modules/services/pangolin.nix
     ../../modules/services/newt.nix
-    #../../modules/services/pocket-id.nix
+    ../../modules/services/pocket-id.nix
   ];
 
   # Host-specific configurations
