@@ -17,9 +17,6 @@
     #../../modules/services/vault.nix
     #../../modules/services/pangolin.nix
     #../../modules/services/pocket-id.nix
-
-    # Container modules
-    ../../modules/containers/omni.nix
   ];
 
   # Host-specific configurations
@@ -34,20 +31,6 @@
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
     age.generateKey = false;
-
-    secrets = {
-      "omni-config" = {
-        sopsFile = ../../secrets/omni.yaml;
-        format = "yaml";
-        key = "";
-      };
-      "omni-key" = {
-        sopsFile = ../../secrets/omni.asc;
-        format = "binary";
-        owner = "omni";
-        group = "omni";
-      };
-    };
   };
 
   system.stateVersion = "26.05";
