@@ -67,6 +67,7 @@
     vlc
     obs-studio
     #davinci-resolve
+    kicad
 
     # ── Gaming ────────────────────────────────────────────────
     steam
