@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    basalt.url = "github:MegalithOfficial/basalt-launcher";
+    basalt.url = "github:MegalithOfficial/basalt-launcher#dev";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, sops-nix, ...}@inputs: {
