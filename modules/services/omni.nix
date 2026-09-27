@@ -23,6 +23,7 @@
       "--read-only"
       "--cap-drop=ALL"
       "--security-opt=no-new-privileges:true"
+      "--network=host"
     ];
     capabilities = {
       NET_ADMIN = true;
