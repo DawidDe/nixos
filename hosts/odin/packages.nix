@@ -36,7 +36,7 @@
     # ── Development / Programming ────────────────────────────
     python314
     nodejs
-    jdk21
+    #jdk21
     jdk25
     ffmpeg
     libopus
