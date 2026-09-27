@@ -39,9 +39,6 @@
     devices = [
       "/dev/net/tun:/dev/net/tun"
     ];
-    networks = [
-      "omni"
-    ];
     autoStart = true;
   };
 }
