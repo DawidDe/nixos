@@ -34,12 +34,10 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Build Raspberry Pi SD image
-        working-directory: nixos
         run: |
-          nix build .#nixosConfigurations.pi-image.config.system.build.sdImage
+          nix build .#nixosConfigurations.heimdall-image.config.system.build.sdImage
 
       - name: Show image
-        working-directory: nixos
         run: |
           ls -lh result/sd-image/
 
