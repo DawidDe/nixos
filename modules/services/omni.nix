@@ -5,6 +5,10 @@
     8091
   ];
 
+  networking.firewall.allowedUDPPorts = [
+    50180
+  ];
+
   sops.secrets.omni-key = {
     sopsFile = ../../secrets/omni.asc;
     key = "";
