@@ -42,6 +42,7 @@
     libopus
     github-cli
     rpi-imager
+    sops
 
     # ── Kubernetes / Infrastructure ──────────────────────────
     kubectl
