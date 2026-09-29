@@ -1,16 +1,21 @@
-name: Build NixOS SD Image
+name: Build Raspberry Pi SD Image
 
 on:
   push:
     branches:
       - main
-  pull_request:
+    paths:
+      - "nixos/flake.nix"
+      - "nixos/flake.lock"
+      - "nixos/hosts/pi/**"
+      - "nixos/modules/**"
+      - ".github/workflows/pi-image.yml"
+
   workflow_dispatch:
 
 jobs:
-  build-sd-image:
-    runs-on: ubuntu-latest
-    timeout-minutes: 360
+  build:
+    runs-on: ubuntu-24.04-arm
 
     permissions:
       contents: read
@@ -19,50 +24,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Better Nix installer
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: cachix/install-nix-action@v31
 
-      # Your personal Cachix cache
       - name: Setup Cachix
-        if: github.event_name != 'pull_request'
         uses: cachix/cachix-action@v16
         with:
           name: dawidde-nixos
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      # Debugging: verify substitutes are active
-      - name: Show Nix config
+      - name: Build Raspberry Pi SD image
+        working-directory: nixos
         run: |
-          nix show-config | grep substituters
-          nix show-config | grep trusted-public-keys
+          nix build .#nixosConfigurations.pi-image.config.system.build.sdImage
 
-      # Build with logs
-      - name: Build SD image
+      - name: Show image
+        working-directory: nixos
         run: |
-          nix-build \
-            '<nixpkgs/nixos>' \
-            -A config.system.build.sdImage \
-            -I nixos-config=./pi/sd-image.nix \
-            --show-trace \
-            -vv
+          ls -lh result/sd-image/
 
-      # Collect image
-      - name: Collect image
-        run: |
-          mkdir -p artifacts
-
-          find -L result -type f \
-            \( -iname "*.img" -o -iname "*.img.zst" -o -iname "*.img.gz" \) \
-            -exec cp {} artifacts/ \;
-
-          ls -lah artifacts
-
-      # Upload image artifact
-      - name: Upload artifact
+      - name: Upload SD image
         uses: actions/upload-artifact@v4
         with:
-          name: nixos-sd-image
-          path: artifacts/
-          if-no-files-found: error
+          name: raspberry-pi-4-sd-image
+          path: nixos/result/sd-image/*
           retention-days: 7
