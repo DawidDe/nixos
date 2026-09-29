@@ -23,6 +23,11 @@
   # Host-specific configurations
   networking.hostName = "heimdall";
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
     age.generateKey = false;
