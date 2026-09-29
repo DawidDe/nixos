@@ -14,16 +14,6 @@
 
   networking.hostName = "heimdall";
 
-  hardware.raspberry-pi.firmware.uboot.enable = true;
-
-  boot.initrd.includeDefaultModules = false;
-  boot.initrd.availableKernelModules = lib.mkForce [
-    "mmc_block"
-    "sdhci"
-    "sdhci_iproc"
-    "bcm2835_dma"
-  ];
-
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
 
@@ -31,4 +21,6 @@
   };
 
   system.stateVersion = "26.05";
+
+  sdImage.compressImage = false;
 }
