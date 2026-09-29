@@ -64,7 +64,6 @@
         specialArgs = { inherit inputs; };
 
         modules = [
-          nixos-hardware.nixosModules.raspberry-pi-4
           sops-nix.nixosModules.sops
           ./hosts/heimdall/configuration.nix
         ];
