@@ -1,6 +1,10 @@
 { config, lib, pkgs, ...}:
 
 {
+  networking.firewall.allowedTCPPorts = [
+    8091
+  ];
+
   sops.secrets.omni-key = {
     sopsFile = ../../secrets/omni.asc;
     key = "";
