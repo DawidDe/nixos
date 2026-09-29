@@ -43,6 +43,8 @@
     github-cli
     rpi-imager
     sops
+    age
+    age-plugin-yubikey
 
     # ── Kubernetes / Infrastructure ──────────────────────────
     kubectl
