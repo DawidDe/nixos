@@ -1,7 +1,7 @@
 { config, lib, pkgs, ...}:
 
 {
-  networking.firewall.allowedTCPPorts = [
+  networking.firewall.interfaces.siderolink.allowedTCPPorts = [
     8091
   ];
 
