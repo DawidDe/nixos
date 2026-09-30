@@ -1,6 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
+  networking.firewall.allowedUDPPorts = [
+    21820
+    51820
+  ];
+
   sops.secrets."newt-env" = {
     sopsFile = ../../secrets/newt.env;
     format = "dotenv";
