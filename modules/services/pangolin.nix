@@ -1,6 +1,10 @@
 { config, lib, pkgs, ...}:
 
 {
+  package = pkgs.fosrl-pangolin.override {
+    edition = "enterprise";
+  };
+
   networking.firewall.allowedTCPPorts = [
     80
     443
