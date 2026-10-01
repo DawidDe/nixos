@@ -1,10 +1,6 @@
 { config, lib, pkgs, ...}:
 
 {
-  package = pkgs.fosrl-pangolin.override {
-    edition = "enterprise";
-  };
-
   networking.firewall.allowedTCPPorts = [
     80
     443
@@ -22,6 +18,10 @@
 
   services.pangolin = {
     enable = true;
+
+    package = pkgs.fosrl-pangolin.override {
+      edition = "enterprise";
+    };
 
     baseDomain = "dawidde.de";
     dashboardDomain = "pangolin.dawidde.de";
