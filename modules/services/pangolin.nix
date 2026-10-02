@@ -31,7 +31,12 @@ in
       ExecStart = pkgs.writeShellScript "write-pangolin-config" ''
         set -euo pipefail
 
-        install -d -m 0755 /opt/pangolin/config
+        install -d -m 0755 \
+          /opt/pangolin/config \
+          /opt/pangolin/config/db \
+          /opt/pangolin/config/letsencrypt \
+          /opt/pangolin/config/traefik \
+          /opt/pangolin/config/traefik/logs
 
         cat > /opt/pangolin/config/traefik/traefik_config.yml <<EOF
         api:
