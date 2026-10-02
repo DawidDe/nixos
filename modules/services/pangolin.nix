@@ -4,6 +4,16 @@ let
   baseDomain = "dawidde.de";
 in
 {
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    21820
+    51820
+  ];
+
   systemd.tmpfiles.rules = [
     "d /opt/pangolin                 0755 root root -"
     "d /opt/pangolin/config          0755 root root -"
