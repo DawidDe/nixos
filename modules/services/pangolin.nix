@@ -5,7 +5,7 @@ let
   baseDomain      = "dawidde.de";
   acmeEmail       = "dawidimb@proton.me";
 
-  serverSecretFile = config.sops.secrets."pangolin/server-secret".path;
+  serverSecretFile = sops.secrets."pangolin/server-secret".path;
 
   dir    = "/opt/pangolin/config";
   podman = "${config.virtualisation.podman.package}/bin/podman";
