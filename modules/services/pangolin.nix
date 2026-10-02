@@ -4,6 +4,7 @@ let
   baseDomain = "dawidde.de";
 in
 {
+  virtualisation.oci-containers.backend = "docker";
   systemd.tmpfiles.rules = [
     "d /opt/pangolin                 0755 root root -"
     "d /opt/pangolin/config          0755 root root -"
