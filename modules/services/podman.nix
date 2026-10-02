@@ -4,9 +4,9 @@
   virtualisation.podman = {
     enable = true;
     defaultNetwork.settings.dns_enabled = true;
-    extraPackages = with pkgs; {
+    extraPackages = with pkgs; [
       aardvark-dns
       netavark
-    };
+    ];
   };
 }
