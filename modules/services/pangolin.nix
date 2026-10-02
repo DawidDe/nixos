@@ -208,9 +208,11 @@ in
         chmod 0644 /opt/pangolin/config/traefik/traefik_config.yml
         chmod 0644 /opt/pangolin/config/traefik/dynamic_config.yml
 
-        if [ -f /opt/pangolin/config/letsencrypt/acme.json ]; then
-          chmod 0600 /opt/pangolin/config/letsencrypt/acme.json
+        if [ ! -f /opt/pangolin/config/letsencrypt/acme.json ]; then
+          printf '{}\n' > /opt/pangolin/config/letsencrypt/acme.json
         fi
+
+        chmod 0600 /opt/pangolin/config/letsencrypt/acme.json
       '';
     };
   };
