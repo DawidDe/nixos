@@ -14,6 +14,9 @@
   virtualisation.oci-containers.containers.pangolin = {
     image = "docker.io/fosrl/pangolin:latest";
     autoStart = true;
+    networks = [
+      "pangolin"
+    ];
     volumes = [
       "/opt/pangolin/config:/app/config"
     ];
@@ -22,6 +25,9 @@
   virtualisation.oci-containers.containers.gerbil = {
     image = "docker.io/fosrl/gerbil:latest";
     autoStart = true;
+    networks = [
+      "pangolin"
+    ];
     dependsOn = [
       "pangolin"
     ];
