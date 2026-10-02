@@ -108,7 +108,7 @@ in
 
           routers:
             main-app-router-redirect:
-              rule: "Host(`pangolin.${baseDomain}`)"
+              rule: "Host(\`pangolin.${baseDomain}\`)"
               service: next-service
               entryPoints:
                 - web
@@ -117,7 +117,7 @@ in
                 - badger
 
             next-router:
-              rule: "Host(`pangolin.${baseDomain}`) && !PathPrefix(`/api/v1`)"
+              rule: "Host(\`pangolin.${baseDomain}\`) && !PathPrefix(\`/api/v1\`)"
               service: next-service
               entryPoints:
                 - websecure
@@ -127,7 +127,7 @@ in
                 certResolver: letsencrypt
 
             api-router:
-              rule: "Host(`pangolin.${baseDomain}`) && PathPrefix(`/api/v1`)"
+              rule: "Host(\`pangolin.${baseDomain}\`) && PathPrefix(\`/api/v1\`)"
               service: api-service
               entryPoints:
                 - websecure
@@ -137,7 +137,7 @@ in
                 certResolver: letsencrypt
 
             ws-router:
-              rule: "Host(`pangolin.${baseDomain}`)"
+              rule: "Host(\`pangolin.${baseDomain}\`)"
               service: api-service
               entryPoints:
                 - websecure
