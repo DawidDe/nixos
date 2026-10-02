@@ -1,7 +1,7 @@
 { config, lib, pkgs, ...}:
 
 {
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
   };
 }
