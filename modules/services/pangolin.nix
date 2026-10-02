@@ -11,15 +11,6 @@
     51820
   ];
 
-  systemd.tmpfiles.rules = [
-    "d /opt/pangolin                 0755 root root -"
-    "d /opt/pangolin/config          0755 root root -"
-    "d /opt/pangolin/config/db       0755 root root -"
-    "d /opt/pangolin/config/letsencrypt 0755 root root -"
-    "d /opt/pangolin/config/traefik  0755 root root -"
-    "d /opt/pangolin/config/traefik/logs 0755 root root -"
-  ];
-
   virtualisation.oci-containers.containers.pangolin = {
     image = "docker.io/fosrl/pangolin:latest";
     autoStart = true;
