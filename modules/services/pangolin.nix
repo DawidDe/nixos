@@ -33,7 +33,7 @@ in
 
         install -d -m 0755 /opt/pangolin/config
 
-        cat > /opt/pangolin/config/traefik/traefik_config.yml <<'EOF'
+        cat > /opt/pangolin/config/traefik/traefik_config.yml <<EOF
         api:
           insecure: true
           dashboard: true
@@ -90,7 +90,7 @@ in
           entryPoint: "web"
         EOF
 
-        cat > /opt/pangolin/config/traefik/dynamic_config.yml <<'EOF'
+        cat > /opt/pangolin/config/traefik/dynamic_config.yml <<EOF
         http:
           middlewares:
             badger:
@@ -162,7 +162,7 @@ in
                 version: 2
         EOF
 
-        cat > /opt/pangolin/config/config.yml <<'EOF'
+        cat > /opt/pangolin/config/config.yml <<EOF
         gerbil:
           start_port: 51820
           base_endpoint: "pangolin.${baseDomain}"

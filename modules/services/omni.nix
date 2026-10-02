@@ -16,9 +16,9 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d /opt/omni 0777 root root -"
-    "d /opt/omni/sqlite 0777 root root -"
-    "d /opt/omni/etcd 0777 root root -"
+    "d /opt/omni 0750 root root -"
+    "d /opt/omni/sqlite 0750 root root -"
+    "d /opt/omni/etcd 0700 root root -"
   ];
 
   virtualisation.oci-containers.containers.omni = {
