@@ -11,7 +11,7 @@
     # Shared services modules
     ../../modules/services/firewall.nix
     ../../modules/services/ssh.nix
-    ../../modules/services/podman.nix
+    ../../modules/services/docker.nix
     ../../modules/services/cloudflare-ddns.nix
     ../../modules/services/openbao.nix
     ../../modules/services/pangolin.nix

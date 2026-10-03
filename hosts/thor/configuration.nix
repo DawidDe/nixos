@@ -15,7 +15,6 @@
     ../../modules/services/ssh.nix
     ../../modules/services/incus.nix
     ../../modules/services/lvm.nix
-    ../../modules/services/podman.nix
     ../../modules/services/smb.nix
     ../../modules/services/cron.nix
   ];
