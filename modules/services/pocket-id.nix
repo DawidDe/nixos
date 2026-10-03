@@ -20,6 +20,9 @@
   sops.secrets."pocket-id-env" = {
     sopsFile = ../../secrets/pocket-id.env;
     format = "dotenv";
+
+    owner = "pocket-id";
+    group = "pocket-id";
   };
 
   virtualisation.oci-containers.containers.pocket-id = {
