@@ -50,7 +50,7 @@ in
         /dev/stdin /opt/openbao/config.json <<'EOF'
       ${config}
       EOF
-    ''
+    '';
   };
 
   virtualisation.oci-containers.containers.openbao = {
