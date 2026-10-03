@@ -35,28 +35,28 @@
       HOME_PAGE_URL = "/settings/apps";
 
       # Auth & Sessions
-      SESSION_DURATION = 60;
-      EMAIL_VERIFICATION_ENABLED = true;
-      EMAIL_LOGIN_NOTIFICATION_ENABLED = true;
-      EMAIL_API_KEY_EXPIRATION_ENABLED = true;
-      EMAIL_ONE_TIME_ACCESS_AS_ADMIN_ENABLED = false;
-      EMAIL_ONE_TIME_ACCESS_AS_UNAUTHENTICATED_ENABLED = false;
+      SESSION_DURATION = "60";
+      EMAIL_VERIFICATION_ENABLED = "true";
+      EMAIL_LOGIN_NOTIFICATION_ENABLED = "true";
+      EMAIL_API_KEY_EXPIRATION_ENABLED = "true";
+      EMAIL_ONE_TIME_ACCESS_AS_ADMIN_ENABLED = "false";
+      EMAIL_ONE_TIME_ACCESS_AS_UNAUTHENTICATED_ENABLED = "false";
 
       # User Management
-      ALLOW_OWN_ACCOUNT_EDIT = false;
+      ALLOW_OWN_ACCOUNT_EDIT = "false";
       ALLOW_USER_SIGNUPS = "disabled";
-      LDAP_ENABLED = false;
+      LDAP_ENABLED = "false";
 
       # UI
       ACCENT_COLOR = "default";
-      DISABLE_ANIMATIONS = false;
-      UI_CONFIG_DISABLED = true;
+      DISABLE_ANIMATIONS = "false";
+      UI_CONFIG_DISABLED = "true";
 
       # Privacy & Analytics
-      ANALYTICS_DISABLED = true;
+      ANALYTICS_DISABLED = "true";
 
       # Reverse Proxy
-      TRUST_PROXY = true;
+      TRUST_PROXY = "true";
     };
     environmentFiles = [
       config.sops.secrets.pocket-id-env.path
