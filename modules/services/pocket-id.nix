@@ -59,7 +59,7 @@
       TRUST_PROXY = true;
     };
     environmentFiles = [
-      config.sops.secrets.pocket-id-env.path;
+      config.sops.secrets.pocket-id-env.path
     ];
     networks = [
       "pocket-id"
