@@ -1,16 +1,10 @@
 { config, lib, pkgs, ...}:
 
 {
-  networking.firewall = {
-    allowedTCPPorts = [
-      80
-      443
-    ];
-    allowedUDPPorts = [
-      21820
-      51820
-    ];
-  };
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
   users.groups.pangolin = {
     gid = 2000;

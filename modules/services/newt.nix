@@ -11,13 +11,14 @@
     format = "dotenv";
   };
 
-  services.newt = {
-    enable = true;
-
-    settings = {
+  virtualisation.oci-containers = {
+    image = "docker.io/fosrl/newt:1.5.0";
+    environment = {
       endpoint = "https://pangolin.dawidde.de";
     };
-
-    environmentFile = config.sops.secrets.newt-env.path;
+    environmentFiles = [
+      config.sops.secrets.newt-env.path
+    ];
+    autoStart = true;
   };
 }
