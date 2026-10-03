@@ -37,14 +37,17 @@
     pangolin-config = {
       sopsFile = ../../secrets/pangolin-config.yml;
       format = "yaml";
+      key = "";
     };
     traefik-dynamic_config = {
       sopsFile = ../../secrets/traefik-dynamic_config.yml;
       format = "yaml";
+      key = "";
     };
     traefik-traefik_config = {
       sopsFile = ../../secrets/traefik-traefik_config.yml;
       format = "yaml";
+      key = "";
     };
   };
 
