@@ -101,7 +101,6 @@
 
       gerbil = {
         image = "docker.io/fosrl/gerbil:1.5.2";
-        user = "2000:2000";
         volumes = [
           "/opt/pangolin/config:/var/config"
         ];
