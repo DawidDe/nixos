@@ -14,7 +14,7 @@ let
       tls_disable = true;
     };
 
-    cluster_addr = "http://0.0.0.0:8201";
+    cluster_addr = "http://openbao:8201";
     api_addr = "https://openbao.dawidde.de";
   };
 in 
