@@ -14,7 +14,7 @@
   virtualisation.oci-containers.containers.newt = {
     image = "docker.io/fosrl/newt:1.18.1";
     environment = {
-      endpoint = "https://pangolin.dawidde.de";
+      PANGOLIN_ENDPOINT = "https://pangolin.dawidde.de";
     };
     environmentFiles = [
       config.sops.secrets.newt-env.path
