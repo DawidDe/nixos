@@ -79,70 +79,67 @@
     '';
   };
 
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers = {
-      pangolin = {
-        image = "docker.io/fosrl/pangolin:ee-1.24.0";
-        user = "2000:2000";
-        volumes = [
-          "/opt/pangolin/config:/app/config"
-        ];
-        networks = [
-          "pangolin"
-        ];
-        autoStart = true;
-      };
+  virtualisation.oci-containers.containers = {
+    pangolin = {
+      image = "docker.io/fosrl/pangolin:ee-1.24.0";
+      user = "2000:2000";
+      volumes = [
+        "/opt/pangolin/config:/app/config"
+      ];
+      networks = [
+        "pangolin"
+      ];
+      autoStart = true;
+    };
 
-      gerbil = {
-        image = "docker.io/fosrl/gerbil:1.5.2";
-        volumes = [
-          "/opt/pangolin/config:/var/config"
-        ];
-        cmd = [
-          "--reachableAt=http://gerbil:3004"
-          "--generateAndSaveKeyTo=/var/config/key"
-          "--remoteConfig=http://pangolin:3001/api/v1/"
-        ];
-        capabilities = {
-          NET_ADMIN = true;
-          SYS_MODULE = true;
-        };
-        ports = [
-          "80:80"
-          "443:443"
-          "21820:21820/udp"
-          "51820:51820/udp"
-        ];
-        networks = [
-          "pangolin"
-        ];
-        dependsOn = [
-          "pangolin"
-        ];
-        autoStart = true;
+    gerbil = {
+      image = "docker.io/fosrl/gerbil:1.5.2";
+      volumes = [
+        "/opt/pangolin/config:/var/config"
+      ];
+      cmd = [
+        "--reachableAt=http://gerbil:3004"
+        "--generateAndSaveKeyTo=/var/config/key"
+        "--remoteConfig=http://pangolin:3001/api/v1/"
+      ];
+      capabilities = {
+        NET_ADMIN = true;
+        SYS_MODULE = true;
       };
-      
-      traefik = {
-        image = "docker.io/traefik:v3.7";
-        user = "2000:2000";
-        volumes = [
-          "/opt/pangolin/config/traefik:/etc/traefik:ro"
-          "/opt/pangolin/config/letsencrypt:/letsencrypt"
-          "/opt/pangolin/config/traefik/logs:/var/log/traefik"
-          "/opt/pangolin/config/traefik/plugins:/plugins-storage"
-        ];
-        cmd = [
-          "--configFile=/etc/traefik/traefik_config.yml"
-        ];
-        extraOptions = [
-          "--network=container:gerbil"
-        ];
-        dependsOn = [
-          "pangolin"
-        ];
-        autoStart = true;
-      };
+      ports = [
+        "80:80"
+        "443:443"
+        "21820:21820/udp"
+        "51820:51820/udp"
+      ];
+      networks = [
+        "pangolin"
+      ];
+      dependsOn = [
+        "pangolin"
+      ];
+      autoStart = true;
+    };
+    
+    traefik = {
+      image = "docker.io/traefik:v3.7";
+      user = "2000:2000";
+      volumes = [
+        "/opt/pangolin/config/traefik:/etc/traefik:ro"
+        "/opt/pangolin/config/letsencrypt:/letsencrypt"
+        "/opt/pangolin/config/traefik/logs:/var/log/traefik"
+        "/opt/pangolin/config/traefik/plugins:/plugins-storage"
+      ];
+      cmd = [
+        "--configFile=/etc/traefik/traefik_config.yml"
+      ];
+      extraOptions = [
+        "--network=container:gerbil"
+      ];
+      dependsOn = [
+        "pangolin"
+      ];
+      autoStart = true;
     };
   };
 }
