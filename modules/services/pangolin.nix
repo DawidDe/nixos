@@ -141,7 +141,7 @@
           "--configFile=/etc/traefik/traefik_config.yml"
         ];
         extraOptions = [
-          "--network:container:gerbil"
+          "--network=container:gerbil"
         ];
         dependsOn = [
           "pangolin"
