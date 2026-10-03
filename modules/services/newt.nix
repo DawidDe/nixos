@@ -11,7 +11,7 @@
     format = "dotenv";
   };
 
-  virtualisation.oci-containers = {
+  virtualisation.oci-containers.containers.newt = {
     image = "docker.io/fosrl/newt:1.5.0";
     environment = {
       endpoint = "https://pangolin.dawidde.de";
