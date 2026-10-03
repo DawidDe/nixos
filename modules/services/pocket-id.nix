@@ -28,7 +28,7 @@
     volumes = [
       "/opt/pocket-id:/app/data"
     ];
-    environment = [
+    environment = {
       # General
       APP_NAME = "Pocket ID";
       APP_URL = "https://pocket-id.dawidde.de";
@@ -57,7 +57,7 @@
 
       # Reverse Proxy
       TRUST_PROXY = true;
-    ];
+    };
     environmentFiles = [
       config.sops.secrets.pocket-id-env.path;
     ];
