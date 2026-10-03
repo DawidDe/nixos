@@ -93,6 +93,9 @@
         volumes = [
           "/opt/pangolin/config:/app/config"
         ];
+        networks = [
+          "pangolin"
+        ];
         autoStart = true;
       };
 
@@ -117,6 +120,9 @@
           "21820:21820/udp"
           "51820:51820/udp"
         ];
+        networks = [
+          "pangolin"
+        ];
         dependsOn = [
           "pangolin"
         ];
@@ -133,6 +139,9 @@
         ];
         cmd = [
           "--configFile=/etc/traefik/traefik_config.yml"
+        ];
+        extraOptions = [
+          "--network:container:gerbil"
         ];
         dependsOn = [
           "pangolin"
