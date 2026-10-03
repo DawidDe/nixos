@@ -19,6 +19,12 @@
     environmentFiles = [
       config.sops.secrets.newt-env.path
     ];
+    networks = [
+      "pangolin"
+      "pocket-id"
+      "openbao"
+      "omni"
+    ];
     autoStart = true;
   };
 }
