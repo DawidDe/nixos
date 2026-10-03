@@ -60,6 +60,10 @@ in
       "/opt/openbao/config.json:/openbao/config/config.json:ro"
       "/opt/openbao:/var/lib/openbao"
     ];
+    cmd = [
+      "server"
+      "/openbao/config/config.json"
+    ];
     networks = [
       "openbao"
     ];
