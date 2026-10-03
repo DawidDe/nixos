@@ -31,6 +31,7 @@
     "d /opt/pangolin/config/letsencrypt  0750 pangolin pangolin"
     "d /opt/pangolin/config/traefik      0750 pangolin pangolin"
     "d /opt/pangolin/config/traefik/logs 0750 pangolin pangolin"
+    "d /opt/pangolin/config/traefik/plugins 0750 pangolin pangolin"
   ];
 
   sops.secrets = {
@@ -135,6 +136,7 @@
           "/opt/pangolin/config/traefik:/etc/traefik:ro"
           "/opt/pangolin/config/letsencrypt:/letsencrypt"
           "/opt/pangolin/config/traefik/logs:/var/log/traefik"
+          "/opt/pangolin/config/traefik/plugins:/plugins-storage"
         ];
         cmd = [
           "--configFile=/etc/traefik/traefik_config.yml"
