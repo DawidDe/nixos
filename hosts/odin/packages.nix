@@ -66,7 +66,7 @@
     signal-desktop
 
     # ── Media / Creative ─────────────────────────────────────
-    spotify
+    spotifast
     vlc
     obs-studio
     #davinci-resolve
