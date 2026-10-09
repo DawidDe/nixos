@@ -21,5 +21,6 @@
   networking.firewall.extraInputRules = ''
     # Allow SSH only from 192.168.178.67
     iifname { "end0", "eno1" } ip saddr 192.168.178.67 tcp dport 22 accept
+        iifname { "end0", "eno1" } ip saddr 192.168.178.45 tcp dport 22 accept
   '';
 }
