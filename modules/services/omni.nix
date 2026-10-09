@@ -27,7 +27,6 @@
       "--read-only"
       "--cap-drop=ALL"
       "--security-opt=no-new-privileges:true"
-      "--network=host"
     ];
     capabilities = {
       NET_ADMIN = true;
@@ -43,6 +42,9 @@
     ];
     devices = [
       "/dev/net/tun:/dev/net/tun"
+    ];
+    networks = [
+      "omni"
     ];
     autoStart = true;
   };
