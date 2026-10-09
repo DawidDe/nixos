@@ -44,6 +44,9 @@
     devices = [
       "/dev/net/tun:/dev/net/tun"
     ];
+    ports = [
+      "50180:50180/udp"
+    ];
     networks = [
       "omni"
     ];
