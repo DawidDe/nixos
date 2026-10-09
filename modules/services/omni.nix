@@ -27,6 +27,7 @@
       "--read-only"
       "--cap-drop=ALL"
       "--security-opt=no-new-privileges:true"
+      "--tmpfs=/var/run:rw,noexec,nosuid,size=64m"
     ];
     capabilities = {
       NET_ADMIN = true;
