@@ -7,5 +7,6 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "de";
+    earlySetup = true;
   };
 }
