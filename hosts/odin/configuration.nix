@@ -6,22 +6,24 @@
     ./disko-config.nix
     ./packages.nix
 
-    # Shared system modules
-    ../../modules/system/locale.nix
-    ../../modules/system/users.nix
+    # Core modules
+    ../../modules/core/locale.nix
+    ../../modules/core/users.nix
+    ../../modules/core/firewall.nix
+
+    # Hardware Modules
     ../../modules/system/amdgpu.nix
 
-    # Shared services modules
-    ../../modules/services/firewall.nix
-    ../../modules/services/cups.nix
-    ../../modules/services/pipewire.nix
-    ../../modules/services/greetd.nix
-    ../../modules/services/xdg-portal.nix
-    ../../modules/services/polkit.nix
-    ../../modules/services/hyprland.nix
-    ../../modules/services/keyring.nix
-    ../../modules/services/vr.nix
-    ../../modules/services/pcscd.nix
+    # Desktop modules
+    ../../modules/desktop/cups.nix
+    ../../modules/desktop/pipewire.nix
+    ../../modules/desktop/greetd.nix
+    ../../modules/desktop/xdg-portal.nix
+    ../../modules/desktop/polkit.nix
+    ../../modules/desktop/hyprland.nix
+    ../../modules/desktop/keyring.nix
+    ../../modules/desktop/vr.nix
+    ../../modules/desktop/pcscd.nix
   ];
 
   # Host-specific configurations

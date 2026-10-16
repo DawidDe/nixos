@@ -4,20 +4,22 @@
   imports = [
     ./packages.nix
 
-    # Shared system modules
-    ../../modules/system/locale.nix
-    ../../modules/system/users.nix
-
-    # Shared services modules
-    ../../modules/services/firewall.nix
-    ../../modules/services/ssh.nix
-    ../../modules/services/docker.nix
-    ../../modules/services/cloudflare-ddns.nix
-    ../../modules/services/openbao.nix
-    ../../modules/services/pangolin.nix
-    ../../modules/services/newt.nix
-    ../../modules/services/pocket-id.nix
-    ../../modules/services/omni.nix
+    # Core modules
+    ../../modules/core/locale.nix
+    ../../modules/core/users.nix 
+    ../../modules/core/firewall.nix
+    ../../modules/core/ssh.nix
+    
+    # Virtualization modules
+    ../../modules/virtualization/docker.nix
+    
+    # Container modules
+    ../../modules/containers/cloudflare-ddns.nix
+    ../../modules/containers/openbao.nix
+    ../../modules/containers/pangolin.nix
+    ../../modules/containers/newt.nix
+    ../../modules/containers/pocket-id.nix
+    ../../modules/containers/omni.nix
   ];
 
   # Host-specific configurations

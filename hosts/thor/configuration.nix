@@ -6,15 +6,19 @@
     ./disko-config.nix
     ./packages.nix
 
-    # Shared system modules
-    ../../modules/system/locale.nix
-    ../../modules/system/users.nix
-
-    # Shared services modules
-    ../../modules/services/firewall.nix
-    ../../modules/services/ssh.nix
-    ../../modules/services/incus.nix
-    ../../modules/services/lvm.nix
+    # Core modules
+    ../../modules/core/locale.nix
+    ../../modules/core/users.nix
+    ../../modules/core/firewall.nix
+    ../../modules/core/ssh.nix
+    
+    # Virtualization modules
+    ../../modules/virtualization/incus.nix
+    
+    # Hardware modules
+    ../../modules/hardware/lvm.nix
+    
+    # Service modules
     ../../modules/services/smb.nix
     ../../modules/services/cron.nix
   ];

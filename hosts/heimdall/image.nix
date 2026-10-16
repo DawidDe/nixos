@@ -3,13 +3,11 @@
   imports = [
     ./packages.nix
 
-    # Shared system modules
-    ../../modules/system/locale.nix
-    ../../modules/system/users.nix
-
-    # Shared services modules
-    ../../modules/services/firewall.nix
-    ../../modules/services/ssh.nix
+    # Core modules
+    ../../modules/core/locale.nix
+    ../../modules/core/users.nix
+    ../../modules/core/firewall.nix
+    ../../modules/core/ssh.nix
   ];
 
   networking.hostName = "heimdall";
