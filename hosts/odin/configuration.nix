@@ -12,7 +12,7 @@
     ../../modules/core/firewall.nix
 
     # Hardware Modules
-    ../../modules/system/amdgpu.nix
+    ../../modules/hardware/amdgpu.nix
 
     # Desktop modules
     ../../modules/desktop/cups.nix
