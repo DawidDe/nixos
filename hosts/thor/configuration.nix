@@ -19,7 +19,6 @@
     ../../modules/hardware/lvm.nix
     
     # Service modules
-    ../../modules/services/smb.nix
     ../../modules/services/cron.nix
   ];
 
