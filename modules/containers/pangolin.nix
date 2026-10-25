@@ -81,7 +81,7 @@
 
   virtualisation.oci-containers.containers = {
     pangolin = {
-      image = "docker.io/fosrl/pangolin:ee-1.24.0";
+      image = "docker.io/fosrl/pangolin@sha256:f2c0fc54e1b59efcd23b8685e8df84350f363e14ebe1c13ce88a681f181ca49e";
       user = "2000:2000";
       volumes = [
         "/opt/pangolin/config:/app/config"
@@ -93,7 +93,7 @@
     };
 
     gerbil = {
-      image = "docker.io/fosrl/gerbil:1.5.2";
+      image = "docker.io/fosrl/gerbil@sha256:1f6e64eaba7997282c7067ba19922fc7e46b5f73e1a27add3dd66a591d50512f";
       volumes = [
         "/opt/pangolin/config:/var/config"
       ];
@@ -122,7 +122,7 @@
     };
     
     traefik = {
-      image = "docker.io/traefik:v3.7";
+      image = "ghcr.io/traefik@sha256:c8a121e4bb1347e8fd52657fab12f2cb70b68f8a018895e2068f92c9e519b9c2";
       user = "2000:2000";
       volumes = [
         "/opt/pangolin/config/traefik:/etc/traefik:ro"
