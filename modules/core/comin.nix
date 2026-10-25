@@ -6,7 +6,7 @@
     remotes = [
       {
         name = "origin";
-        url = "https://github.com/dawidde/homelab.git";
+        url = "https://github.com/dawidde/nixos.git";
         branches.main.name = "main";
       }
     ];
