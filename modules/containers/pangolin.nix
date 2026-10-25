@@ -81,7 +81,7 @@
 
   virtualisation.oci-containers.containers = {
     pangolin = {
-      image = "ghcr.io/fosrl/pangolin@sha256:f2c0fc54e1b59efcd23b8685e8df84350f363e14ebe1c13ce88a681f181ca49e";
+      image = "ghcr.io/fosrl/pangolin@sha256:5039d0e64a2e57ac52c4833a838f8c015c153f8ab4234c2b3efe95ab4db0b90a";
       user = "2000:2000";
       volumes = [
         "/opt/pangolin/config:/app/config"
@@ -93,7 +93,7 @@
     };
 
     gerbil = {
-      image = "ghcr.io/fosrl/gerbil@sha256:1f6e64eaba7997282c7067ba19922fc7e46b5f73e1a27add3dd66a591d50512f";
+      image = "ghcr.io/fosrl/gerbil@sha256:167d81672082ba7b40d1619d5b5182ee3825ac27cb02502ba705b3178a1e7502";
       volumes = [
         "/opt/pangolin/config:/var/config"
       ];
