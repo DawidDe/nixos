@@ -81,7 +81,7 @@
 
   virtualisation.oci-containers.containers = {
     pangolin = {
-      image = "ghcr.io/fosrl/pangolin@sha256:f2c0fc54e1b59efcd23b8685e8df84350f363e14ebe1c13ce88a681f181ca49e";
+      image = "ghcr.io/fosrl/pangolin:1.25.3@sha256:5039d0e64a2e57ac52c4833a838f8c015c153f8ab4234c2b3efe95ab4db0b90a";
       user = "2000:2000";
       volumes = [
         "/opt/pangolin/config:/app/config"
@@ -93,7 +93,7 @@
     };
 
     gerbil = {
-      image = "ghcr.io/fosrl/gerbil@sha256:1f6e64eaba7997282c7067ba19922fc7e46b5f73e1a27add3dd66a591d50512f";
+      image = "ghcr.io/fosrl/gerbil:1.5.2@sha256:1f6e64eaba7997282c7067ba19922fc7e46b5f73e1a27add3dd66a591d50512f";
       volumes = [
         "/opt/pangolin/config:/var/config"
       ];
@@ -122,7 +122,7 @@
     };
     
     traefik = {
-      image = "ghcr.io/traefik/traefik@sha256:c8a121e4bb1347e8fd52657fab12f2cb70b68f8a018895e2068f92c9e519b9c2";
+      image = "ghcr.io/traefik/traefik:3.7.16@sha256:c8a121e4bb1347e8fd52657fab12f2cb70b68f8a018895e2068f92c9e519b9c2";
       user = "2000:2000";
       volumes = [
         "/opt/pangolin/config/traefik:/etc/traefik:ro"
