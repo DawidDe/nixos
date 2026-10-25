@@ -20,10 +20,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     basalt.url = "github:MegalithOfficial/basalt-launcher";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, sops-nix, ...}@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, sops-nix, comin, ...}@inputs: {
     nixosConfigurations = {
       odin = nixpkgs-unstable.lib.nixosSystem {
         system = "x86_64-linux";
@@ -44,6 +49,7 @@
 
         modules = [
           disko.nixosModules.disko
+          comin.nixosModules.comin
           ./hosts/thor/configuration.nix
         ];
       };
