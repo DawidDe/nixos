@@ -38,7 +38,7 @@
 
   sops.secrets.keyfile = {
     sopsFile = ../../secrets/keyfile.sops;
-    key = "";
+    format = "binary";
   };
 
   boot.loader.grub = {
