@@ -1,6 +1,7 @@
 keys:
   - &primary age1yubikey1qfeuzecefcjwjnyup4699fs6nwnz2tl3ymlaad5pxj9kflhc852r7j9e3sa
   - &pi age12x08qp6qx2pmm5jhc6658mpwrt88c0mr06dxermvja5dux40fglqmeywhn
+  - &thor age1pem3dkjejkhpvvgkq9fjvjjq3rrecp88qacd89zpxwg9gwqh2avs20cxal
 
 creation_rules:
   - path_regex: secrets/.*$
@@ -8,3 +9,4 @@ creation_rules:
     - age:
       - *primary
       - *pi
+      - *thor
