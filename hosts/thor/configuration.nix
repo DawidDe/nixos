@@ -33,7 +33,7 @@
 
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
-    age.generateKey = false;
+    age.generateKey = true;
   };
 
   sops.secrets.keyfile = {
