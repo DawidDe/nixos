@@ -31,6 +31,16 @@
     "flakes"
   ];
 
+  sops = {
+    age.keyFile = "/var/lib/sops-nix/key.txt";
+    age.generateKey = false;
+  };
+
+  sops.secrets.keyfile = {
+    sopsFile = ../../secrets/keyfile.sops;
+    key = "";
+  };
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
