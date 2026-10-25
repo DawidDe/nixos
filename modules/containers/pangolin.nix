@@ -122,7 +122,7 @@
     };
     
     traefik = {
-      image = "ghcr.io/traefik@sha256:c8a121e4bb1347e8fd52657fab12f2cb70b68f8a018895e2068f92c9e519b9c2";
+      image = "ghcr.io/traefik/traefik@sha256:c8a121e4bb1347e8fd52657fab12f2cb70b68f8a018895e2068f92c9e519b9c2";
       user = "2000:2000";
       volumes = [
         "/opt/pangolin/config/traefik:/etc/traefik:ro"
