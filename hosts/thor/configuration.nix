@@ -11,6 +11,7 @@
     ../../modules/core/users.nix
     ../../modules/core/firewall.nix
     ../../modules/core/ssh.nix
+    ../../modules/core/comin.nix
     
     # Virtualization modules
     ../../modules/virtualization/incus.nix
