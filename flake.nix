@@ -49,6 +49,7 @@
 
         modules = [
           disko.nixosModules.disko
+          sops-nix.nixosModules.sops
           comin.nixosModules.comin
           ./hosts/thor/configuration.nix
         ];
