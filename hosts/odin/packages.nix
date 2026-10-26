@@ -88,6 +88,6 @@
     defaultEditor = true;
     profiles.default.extensions = with pkgs.vscode-extensions; [
       continue.continue
-    ]
+    ];
   };
 }
