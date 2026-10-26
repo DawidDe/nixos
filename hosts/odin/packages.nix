@@ -86,7 +86,7 @@
     enable = true;
     package = pkgs.vscodium-fhs;
     defaultEditor = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
+    extensions = with pkgs.vscode-extensions; [
       continue.continue
     ];
   };
