@@ -27,6 +27,7 @@
     # ── Browsers / Productivity ──────────────────────────────
     brave-origin
     libreoffice
+    cline
     opencode
     superfile
     drawio
