@@ -27,6 +27,7 @@
     # ── Browsers / Productivity ──────────────────────────────
     brave-origin
     libreoffice
+    opencode
     superfile
     drawio
     yubioath-flutter
