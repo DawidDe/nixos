@@ -27,6 +27,8 @@
     # ── Browsers / Productivity ──────────────────────────────
     brave-origin
     libreoffice
+    vscodium
+    opencode
     superfile
     drawio
     yubioath-flutter
@@ -81,13 +83,4 @@
     proton-vpn-cli
     pangolin-cli
   ];
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium-fhs;
-    defaultEditor = true;
-    extensions = with pkgs.vscode-extensions; [
-      continue.continue
-    ];
-  };
 }
