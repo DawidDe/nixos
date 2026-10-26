@@ -27,7 +27,8 @@
     # ── Browsers / Productivity ──────────────────────────────
     brave-origin
     libreoffice
-    vscodium
+    vscodium-fhs
+    vscode-extensions.continue.continue
     superfile
     drawio
     yubioath-flutter
