@@ -27,8 +27,8 @@
     # ── Browsers / Productivity ──────────────────────────────
     brave-origin
     libreoffice
-    cline
-    opencode
+    qwen-code
+    zed-editor
     superfile
     drawio
     yubioath-flutter
