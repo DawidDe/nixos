@@ -84,7 +84,7 @@
     pangolin-cli
 
     # ── local llm ────────────────────────────────────────────
-    llama-cpp
+    llama-cpp-rocm
   ];
 
   programs.vscode = {
