@@ -82,6 +82,9 @@
     # ── Security / VPN / Passwords ───────────────────────────
     proton-vpn-cli
     pangolin-cli
+
+    # ── local llm ────────────────────────────────────────────
+    llama-cpp
   ];
 
   programs.vscode = {
