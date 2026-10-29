@@ -29,6 +29,7 @@
     libreoffice
     qwen-code
     zed-editor
+    antigravity
     superfile
     drawio
     yubioath-flutter
