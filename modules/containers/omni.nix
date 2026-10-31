@@ -22,7 +22,7 @@
   ];
 
   virtualisation.oci-containers.containers.omni = {
-    image = "ghcr.io/siderolabs/omni:v1.12.4@sha256:714ddbda246875ee95fbbb9fad4e82107a3de23d1e634ec699a05536fc7fae75";
+    image = "ghcr.io/siderolabs/omni:v1.13.1@sha256:39ee6585e25e70a6a951fec11ec6c391b069eb314de6dfc7dd201168b3537423";
     extraOptions = [
       "--read-only"
       "--cap-drop=ALL"
