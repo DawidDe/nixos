@@ -40,6 +40,7 @@
     nodejs
     #jdk21
     jdk25
+    nodejs_22
     ffmpeg
     libopus
     github-cli
