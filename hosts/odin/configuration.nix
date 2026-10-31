@@ -24,6 +24,7 @@
     ../../modules/desktop/keyring.nix
     ../../modules/desktop/vr.nix
     ../../modules/desktop/pcscd.nix
+    ../../modules/desktop/bluetooth.nix
   ];
 
   # Host-specific configurations
