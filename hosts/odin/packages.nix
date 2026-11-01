@@ -94,7 +94,9 @@
     package = pkgs.vscodium-fhs;
     defaultEditor = true;
     extensions = with pkgs.vscode-extensions; [
-      continue.continue
+      ms-python.python
+      hashicorp.hcl
+      google.gemini-cli-vscode-ide-compnanion
     ];
   };
 }
