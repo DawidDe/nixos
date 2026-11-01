@@ -96,7 +96,7 @@
     extensions = with pkgs.vscode-extensions; [
       ms-python.python
       hashicorp.hcl
-      Google.gemini-cli-vscode-ide-companion
+      continue.continue
     ];
   };
 }
