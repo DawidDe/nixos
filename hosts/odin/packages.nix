@@ -2,7 +2,6 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     # ── Core / System ─────────────────────────────────────────
