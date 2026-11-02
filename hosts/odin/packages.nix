@@ -27,8 +27,7 @@
     # ── Browsers / Productivity ──────────────────────────────
     brave-origin
     libreoffice
-    qwen-code
-    zed-editor
+    vscodium
     antigravity
     superfile
     drawio
@@ -89,14 +88,4 @@
     llama-cpp-vulkan
   ];
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium-fhs;
-    defaultEditor = true;
-    extensions = with pkgs.vscode-extensions; [
-      ms-python.python
-      hashicorp.hcl
-      continue.continue
-    ];
-  };
 }
