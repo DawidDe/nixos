@@ -12,7 +12,7 @@
   };
 
   virtualisation.oci-containers.containers.newt = {
-    image = "ghcr.io/fosrl/newt:1.19.0@sha256:0189c8287058b800cca825590e4c39946b3815344ca48678dd0b96616d639319";
+    image = "ghcr.io/fosrl/newt:1.19.1@sha256:c89f01cb387bf6c598959036cbf56306b068a43e8784345bee7398b7af8ee2e1";
     environment = {
       PANGOLIN_ENDPOINT = "https://pangolin.dawidde.de";
     };
