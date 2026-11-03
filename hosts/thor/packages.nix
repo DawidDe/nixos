@@ -5,5 +5,6 @@
     nano
     htop
     zfs
+    screen
   ];
 }
