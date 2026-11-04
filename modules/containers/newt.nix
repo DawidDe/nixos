@@ -24,6 +24,7 @@
       "pocket-id"
       "openbao"
       "omni"
+      "supertokens_supertokens"
     ];
     autoStart = true;
   };
