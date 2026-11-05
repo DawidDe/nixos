@@ -22,9 +22,11 @@
     image = "ghcr.io/timothymiller/cloudflare-ddns:2.3.1@sha256:7e43f85f03b94513d2f05d84ac0f39293e9d339e00b2d64b5cc7bf73e8429d94";
     user = "2003:2003";
     environment = {
-      CLOUDFLARE_API_TOKEN_FILE = config.sops.secrets.cloudflare-ddns-env.path;
       DOMAINS = "dawidde.de";
     };
+    environmentFiles = [
+      config.sops.secrets.cloudflare-ddns-env.path
+    ];
     autoStart = true;
   }; 
 }
