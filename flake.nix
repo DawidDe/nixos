@@ -73,6 +73,7 @@
         modules = [
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
           sops-nix.nixosModules.sops
+          comin.nixosModules.comin
           ./hosts/heimdall/configuration.nix
         ];
       };
