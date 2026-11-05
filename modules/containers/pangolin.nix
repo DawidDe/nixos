@@ -30,7 +30,7 @@
 
   sops.secrets = {
     pangolin-config = {
-      sopsFile = ../../secrets/pangolin-config.yml;.
+      sopsFile = ../../secrets/pangolin-config.yml;
       format = "yaml";
       key = "";
     };
