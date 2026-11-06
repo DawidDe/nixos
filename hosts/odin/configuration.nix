@@ -25,6 +25,9 @@
     ../../modules/desktop/vr.nix
     ../../modules/desktop/pcscd.nix
     ../../modules/desktop/bluetooth.nix
+
+    # Services
+    ../../modules/services/tailscale.nix
   ];
 
   # Host-specific configurations

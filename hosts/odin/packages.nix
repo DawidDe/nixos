@@ -31,7 +31,6 @@
     antigravity
     superfile
     drawio
-    tailscale
     yubioath-flutter
     basalt.packages.x86_64-linux.basalt-launcher-dev
 
