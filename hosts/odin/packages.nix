@@ -47,6 +47,8 @@
     sops
     age
     age-plugin-yubikey
+    bruno
+    ruff
 
     # ── Kubernetes / Infrastructure ──────────────────────────
     kubectl
