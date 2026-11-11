@@ -37,7 +37,7 @@
     age.generateKey = true;
   };
 
-  sops.secrets.backups.key = {
+  sops.secrets.keyfile = {
     sopsFile = ../../secrets/backups.key;
     format = "binary";
   };
