@@ -38,7 +38,7 @@
   };
 
   sops.secrets.keyfile = {
-    sopsFile = ../../secrets/keyfile.sops;
+    sopsFile = ../../secrets/backups.key;
     format = "binary";
   };
 
