@@ -25,6 +25,7 @@
 
   # Host-specific configurations
   networking.hostName = "thor";
+  networking.hostId = "8d5761e8";
 
   nix.settings.experimental-features = [
     "nix-command"
