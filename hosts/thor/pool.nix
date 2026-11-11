@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  boot.zfs.devNodes = "/dev/disk/by-id/ata-WDC_WD142KRYZ-01CMKB0_T3G0V1VE";
+  boot.zfs.devNodes = "/dev/disk/by-id/";
   boot.zfs.extraPools = [ "hdd" ];
 
   fileSystems."/mnt/media" = {
