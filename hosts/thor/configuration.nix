@@ -57,5 +57,7 @@
     kernelModules = [ "dm_thin_pool" ];
   };
 
+  boot.supportedFilesystems = [ "zfs" ];
+
   system.stateVersion = "26.05";
 }
