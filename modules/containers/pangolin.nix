@@ -81,7 +81,7 @@
 
   virtualisation.oci-containers.containers = {
     pangolin = {
-      image = "ghcr.io/fosrl/pangolin:1.26.0@sha256:a8285fd7c4ba400ef011dd62d4116e69298b51df242cdc4f26ba9f2b5d57ff6c";
+      image = "ghcr.io/fosrl/pangolin:ee-1.26.0@sha256:c65b8b4656b3336cea3f2647fc20da955764cd18103c51b2ea6164bbb054e0de";
       user = "2000:2000";
       volumes = [
         "/opt/pangolin/config:/app/config"
