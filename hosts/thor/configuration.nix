@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./packages.nix
+    ./pool.nix
 
     # Core modules
     ../../modules/core/locale.nix
