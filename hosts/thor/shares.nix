@@ -10,6 +10,12 @@
     };
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [
+      445
+    ];
+  };
+
   services.samba.settings = {
     media = {
       path = "/mnt/media";
