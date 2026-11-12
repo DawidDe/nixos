@@ -21,7 +21,7 @@
       "guest ok" = "no";
       "valid users" = "longhorn";
       "hosts allow" = "192.168.178.4 192.168.178.5";
-      "hosts deny" = "0.0.0.0/0"
+      "hosts deny" = "0.0.0.0/0";
     };
   };
 }
