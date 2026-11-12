@@ -6,6 +6,7 @@
     ./disko-config.nix
     ./packages.nix
     ./pool.nix
+    ./shares.nix
 
     # Core modules
     ../../modules/core/locale.nix
@@ -22,6 +23,7 @@
     
     # Service modules
     ../../modules/services/cron.nix
+    ../../modules/services/smb.nix
   ];
 
   # Host-specific configurations
