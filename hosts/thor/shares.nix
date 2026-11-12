@@ -1,9 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
+  users.groups.longhorn = {};
+
   users.users = {
     longhorn = {
       isSystemUser = true;
+      group = "longhorn";
     };
   };
 
@@ -12,7 +15,7 @@
       path = "/mnt/media";
       browseable = "yes";
       "read only" = "yes";
-      "guest ok" = "yes"
+      "guest ok" = "yes";
     };
 
     backups = {
