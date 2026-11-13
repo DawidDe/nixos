@@ -1,7 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  fonts.packages = with pkgs; [
-    liberation_ttf
-  ];
+  fonts = {
+    fontconfig.enable = true;
+    fontDir.enable = true;
+    packages = with pkgs; [
+      liberation_ttf
+    ];
+  };
 }
