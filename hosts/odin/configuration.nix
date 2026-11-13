@@ -5,10 +5,10 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./packages.nix
+    ./default.nix
 
     # Core modules
     ../../modules/core/locale.nix
-    ../../modules/core/users.nix
     ../../modules/core/firewall.nix
 
     # Hardware Modules

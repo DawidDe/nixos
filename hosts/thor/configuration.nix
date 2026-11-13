@@ -5,12 +5,12 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./packages.nix
+    ./default.nix
     ./pool.nix
     ./shares.nix
 
     # Core modules
     ../../modules/core/locale.nix
-    ../../modules/core/users.nix
     ../../modules/core/firewall.nix
     ../../modules/core/ssh.nix
     ../../modules/core/comin.nix
