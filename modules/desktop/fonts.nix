@@ -6,6 +6,7 @@
     fontDir.enable = true;
     packages = with pkgs; [
       liberation_ttf
+      corefonts
     ];
   };
 }
