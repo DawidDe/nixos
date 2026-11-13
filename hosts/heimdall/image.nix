@@ -2,6 +2,7 @@
 {
   imports = [
     ./packages.nix
+    ./default.nix
 
     # Core modules
     ../../modules/core/locale.nix

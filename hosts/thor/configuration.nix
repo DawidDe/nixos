@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./packages.nix
+    ./default.nix
     ./pool.nix
     ./shares.nix
 

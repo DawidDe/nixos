@@ -3,10 +3,11 @@
 {
   imports = [
     ./packages.nix
+    ./default.nix
 
     # Core modules
     ../../modules/core/locale.nix
-    ../../modules/core/users.nix 
+    ../../modules/core/users.nix
     ../../modules/core/firewall.nix
     ../../modules/core/ssh.nix
     ../../modules/core/comin.nix
