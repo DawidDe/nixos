@@ -33,4 +33,9 @@
       "hosts deny" = "0.0.0.0/0";
     };
   };
+
+  systemd.services.samba-smbd = {
+    after = [ "zfs-mount.service" "zfs.target" ];
+    requires = [ "zfs-mount.service" ];
+  };
 }
