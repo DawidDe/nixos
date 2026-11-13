@@ -54,6 +54,8 @@
     kubectl
     kubelogin-oidc
     talosctl
+    fluxcd
+    cilium-cli
     termius
     opentofu
     incus
