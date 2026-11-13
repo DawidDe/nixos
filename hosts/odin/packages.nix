@@ -88,8 +88,6 @@
 
     # ── local llm ────────────────────────────────────────────
     llama-cpp-vulkan
-
-    liberation_ttf
   ];
 
 }

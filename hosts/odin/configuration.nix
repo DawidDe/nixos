@@ -25,6 +25,7 @@
     ../../modules/desktop/vr.nix
     ../../modules/desktop/pcscd.nix
     ../../modules/desktop/bluetooth.nix
+    ../../modules/desktop/fonts.nix
 
     # Services
     ../../modules/services/tailscale.nix
