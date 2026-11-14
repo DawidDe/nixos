@@ -15,6 +15,7 @@
 
     interfaces = {
       br0.useDHCP = true;
+      eno1.useDHCP = true;
     };
   };
 }
