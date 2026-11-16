@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-    services.wivrn = {
-        enable = true;
+  services.wivrn = {
+    enable = true;
 
-        autoStart = true;
-    };
+    autoStart = true;
+  };
 }

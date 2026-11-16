@@ -1,6 +1,11 @@
-{ config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let 
+let
   config = builtins.toJSON {
     ui = true;
 
@@ -17,7 +22,7 @@ let
     cluster_addr = "http://openbao:8201";
     api_addr = "https://openbao.dawidde.de";
   };
-in 
+in
 {
   users.groups.openbao = {
     gid = 2002;

@@ -28,55 +28,66 @@
     basalt.url = "github:MegalithOfficial/basalt-launcher";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, sops-nix, comin, ...}@inputs: {
-    nixosConfigurations = {
-      odin = nixpkgs-unstable.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          basalt = inputs.basalt;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      disko,
+      nixos-hardware,
+      sops-nix,
+      comin,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        odin = nixpkgs-unstable.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            basalt = inputs.basalt;
           };
 
-        modules = [
-          disko.nixosModules.disko
-          ./hosts/odin/configuration.nix
-        ];
-      };
+          modules = [
+            disko.nixosModules.disko
+            ./hosts/odin/configuration.nix
+          ];
+        };
 
-      thor = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        thor = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
 
-        modules = [
-          disko.nixosModules.disko
-          sops-nix.nixosModules.sops
-          comin.nixosModules.comin
-          ./hosts/thor/configuration.nix
-        ];
-      };
+          modules = [
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+            comin.nixosModules.comin
+            ./hosts/thor/configuration.nix
+          ];
+        };
 
-      heimdall-image = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = { inherit inputs; };
+        heimdall-image = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs; };
 
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-          sops-nix.nixosModules.sops
-          ./hosts/heimdall/image.nix
-        ];
-      };
+          modules = [
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            sops-nix.nixosModules.sops
+            ./hosts/heimdall/image.nix
+          ];
+        };
 
-      heimdall = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = { inherit inputs; };
+        heimdall = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs; };
 
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-          sops-nix.nixosModules.sops
-          comin.nixosModules.comin
-          ./hosts/heimdall/configuration.nix
-        ];
+          modules = [
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+            sops-nix.nixosModules.sops
+            comin.nixosModules.comin
+            ./hosts/heimdall/configuration.nix
+          ];
+        };
       };
     };
-  };
 }

@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.mySystem.users;
-in {
+in
+{
   options.mySystem.users = {
     dawid.enable = lib.mkEnableOption "Dawid admin user";
     media.enable = lib.mkEnableOption "Shared media service user";

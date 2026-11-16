@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -15,13 +20,13 @@
     ../../modules/core/firewall.nix
     ../../modules/core/ssh.nix
     ../../modules/core/comin.nix
-    
+
     # Virtualization modules
     ../../modules/virtualization/incus.nix
-    
+
     # Hardware modules
     ../../modules/hardware/lvm.nix
-    
+
     # Service modules
     ../../modules/services/cron.nix
     ../../modules/services/smb.nix

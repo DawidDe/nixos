@@ -1,4 +1,10 @@
-{ config, lib, pkgs, basalt, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  basalt,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;

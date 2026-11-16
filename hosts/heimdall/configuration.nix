@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -11,10 +16,10 @@
     ../../modules/core/firewall.nix
     ../../modules/core/ssh.nix
     ../../modules/core/comin.nix
-    
+
     # Virtualization modules
     ../../modules/virtualization/docker.nix
-    
+
     # Container modules
     ../../modules/containers/cloudflare-ddns.nix
     ../../modules/containers/openbao.nix

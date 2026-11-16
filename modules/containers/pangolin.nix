@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   networking.firewall.allowedTCPPorts = [
@@ -120,7 +125,7 @@
       ];
       autoStart = true;
     };
-    
+
     traefik = {
       image = "ghcr.io/traefik/traefik:v3.7.18@sha256:9c437ac4f09ce6f4980a8544902d3475fdf70a1a7c578729581d2535dfa7d635";
       user = "2000:2000";

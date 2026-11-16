@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   users.groups.cloudflare-ddns = {
@@ -28,5 +33,5 @@
       config.sops.secrets.cloudflare-ddns-env.path
     ];
     autoStart = true;
-  }; 
+  };
 }

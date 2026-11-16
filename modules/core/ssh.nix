@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   services.openssh = {
@@ -23,7 +28,7 @@
     iifname { "end0", "br0" } ip saddr 192.168.178.67 tcp dport 22 accept
     iifname { "end0", "br0" } ip saddr 192.168.178.45 tcp dport 22 accept
   '';
-  
+
   security.pam.services.sudo = {
     sshAgentAuth = true;
   };

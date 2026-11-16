@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  users.groups.longhorn = {};
+  users.groups.longhorn = { };
 
   users.users = {
     longhorn = {
@@ -35,7 +40,10 @@
   };
 
   systemd.services.samba-smbd = {
-    after = [ "zfs-mount.service" "zfs.target" ];
+    after = [
+      "zfs-mount.service"
+      "zfs.target"
+    ];
     requires = [ "zfs-mount.service" ];
   };
 }
