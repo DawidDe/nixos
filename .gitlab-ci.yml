@@ -8,7 +8,7 @@ formatting-and-linting:
   script:
     - nix shell nixpkgs#nixfmt nixpkgs#statix nixpkgs#deadnix --command sh -c "
         nixfmt --check . &&
-        statix --check . &&
+        statix check . &&
         deadnix --fail .
       "
   

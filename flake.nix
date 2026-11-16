@@ -30,11 +30,9 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-unstable,
       disko,
-      nixos-hardware,
       sops-nix,
       comin,
       ...
