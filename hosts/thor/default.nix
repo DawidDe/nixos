@@ -16,8 +16,11 @@
     };
 
     interfaces = {
-      br0.useDHCP = true;
       eno1.useDHCP = false;
+      br0 = {
+        useDHCP = true;
+        macAddress = "54:9f:35:14:1d:30";
+      };
     };
   };
 }
