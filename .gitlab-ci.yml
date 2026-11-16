@@ -1,0 +1,14 @@
+
+
+
+formatting-and-linting:
+  image: nixos/nix:2.35.6
+  before_script:
+    - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+  script:
+    - nix shell nixpkgs#nixfmt nixpkgs#statix nixpkgs#deadnix --command sh -c "
+        nixfmt --check . &&
+        statix --check . &&
+        deadnix --fail .
+      "
+  
