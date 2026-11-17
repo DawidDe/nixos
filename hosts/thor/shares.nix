@@ -3,15 +3,6 @@
 }:
 
 {
-  users.groups.longhorn = { };
-
-  users.users = {
-    longhorn = {
-      isSystemUser = true;
-      group = "longhorn";
-    };
-  };
-
   networking.firewall = {
     allowedTCPPorts = [
       445
