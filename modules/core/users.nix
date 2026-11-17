@@ -14,7 +14,7 @@ in
     omni.enable = lib.mkEnableOption "Shared media service user";
     pangolin.enable = lib.mkEnableOption "Shared media service user";
     pocket-id.enable = lib.mkEnableOption "Shared media service user";
-    vault.enable = lib.mkEnableOption "Shared media service user";
+    openbao.enable = lib.mkEnableOption "Shared media service user";
     ddns.enable = lib.mkEnableOption "Shared media service user";
   };
 
@@ -73,12 +73,12 @@ in
       };
     })
 
-    (lib.mkIf cfg.vault.enable {
-      users.groups.vault.gid = 2002;
-      users.users.vault = {
+    (lib.mkIf cfg.openbao.enable {
+      users.groups.openbao.gid = 2002;
+      users.users.openbao = {
         isSystemUser = true;
         uid = 2002;
-        group = "vault";
+        group = "openbao";
       };
     })
 
