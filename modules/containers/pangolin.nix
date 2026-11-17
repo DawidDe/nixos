@@ -9,6 +9,11 @@
     443
   ];
 
+  networking.firewall.allowedUDPPorts = [
+    21820
+    51820
+  ];
+
   users.groups.pangolin = {
     gid = 2000;
   };
