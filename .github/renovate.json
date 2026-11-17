@@ -33,7 +33,7 @@
     {
       "description": "Automerge patch container updates",
       "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ]
