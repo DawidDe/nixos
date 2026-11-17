@@ -6,6 +6,7 @@
   mySystem.users = {
     dawid.enable = true;
     media.enable = true;
+    longhorn.enable = true;
   };
 
   networking = {

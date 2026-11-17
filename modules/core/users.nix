@@ -16,6 +16,7 @@ in
     pocket-id.enable = lib.mkEnableOption "Shared media service user";
     openbao.enable = lib.mkEnableOption "Shared media service user";
     ddns.enable = lib.mkEnableOption "Shared media service user";
+    longhorn.enable = lib.mkEnableOption "Backups share user";
   };
 
   config = lib.mkMerge [
@@ -88,6 +89,15 @@ in
         isSystemUser = true;
         uid = 2003;
         group = "ddns";
+      };
+    })
+
+    (lib.mkIf cfg.longhorn.enable {
+      users.groups.longhorn.gid = 2004;
+      users.users.longhorn = {
+        isSystemUser = true;
+        uid = 2004;
+        group = "longhorn";
       };
     })
   ];
