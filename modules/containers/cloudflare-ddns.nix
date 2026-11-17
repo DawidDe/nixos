@@ -4,18 +4,6 @@
 }:
 
 {
-  users.groups.cloudflare-ddns = {
-    gid = 2003;
-  };
-
-  users.users = {
-    cloudflare-ddns = {
-      uid = 2003;
-      group = "cloudflare-ddns";
-      isSystemUser = true;
-    };
-  };
-
   sops.secrets."cloudflare-ddns-env" = {
     sopsFile = ../../secrets/cloudflare-ddns.env;
     format = "dotenv";
