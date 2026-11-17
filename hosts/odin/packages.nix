@@ -60,7 +60,7 @@
     talosctl
     fluxcd
     cilium-cli
-    termius
+    sshs
     opentofu
     incus
     remmina
