@@ -8,7 +8,7 @@
     remotes = [
       {
         name = "origin";
-        url = "https://github.com/dawidde/nixos.git";
+        url = "https://gitlab.com/dawidde/nixos.git";
         branches.main.name = "main";
       }
     ];
