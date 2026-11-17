@@ -56,37 +56,37 @@ in
     })
 
     (lib.mkIf cfg.pangolin.enable {
-      users.groups.pangolin.gid = 1002;
+      users.groups.pangolin.gid = 2000;
       users.users.pangolin = {
         isSystemUser = true;
-        uid = 1002;
+        uid = 2000;
         group = "pangolin";
       };
     })
 
     (lib.mkIf cfg.pocket-id.enable {
-      users.groups.pocket-id.gid = 1003;
+      users.groups.pocket-id.gid = 2001;
       users.users.pocket-id = {
         isSystemUser = true;
-        uid = 1003;
+        uid = 2001;
         group = "pocket-id";
       };
     })
 
     (lib.mkIf cfg.vault.enable {
-      users.groups.vault.gid = 1004;
+      users.groups.vault.gid = 2002;
       users.users.vault = {
         isSystemUser = true;
-        uid = 1004;
+        uid = 2002;
         group = "vault";
       };
     })
 
     (lib.mkIf cfg.ddns.enable {
-      users.groups.ddns.gid = 1005;
+      users.groups.ddns.gid = 2003;
       users.users.ddns = {
         isSystemUser = true;
-        uid = 1005;
+        uid = 2003;
         group = "ddns";
       };
     })
