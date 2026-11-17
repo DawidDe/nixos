@@ -38,10 +38,10 @@ in
     })
 
     (lib.mkIf cfg.media.enable {
-      users.groups.media.gid = 2000;
+      users.groups.media.gid = 20000;
       users.users.media = {
         isSystemUser = true;
-        uid = 2000;
+        uid = 20000;
         group = "media";
       };
     })
