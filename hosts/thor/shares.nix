@@ -25,6 +25,15 @@
       "hosts allow" = "192.168.178.4 192.168.178.5";
       "hosts deny" = "0.0.0.0/0";
     };
+
+    immich = {
+      path = "/mnt/immich";
+      "read only" = "no";
+      "guest ok" = "no";
+      "valid users" = "immich";
+      "hosts allow" = "192.168.178.4 192.168.178.5";
+      "hosts deny" = "0.0.0.0/0"
+    };
   };
 
   systemd.services.samba-smbd = {

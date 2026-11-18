@@ -7,6 +7,7 @@
     dawid.enable = true;
     media.enable = true;
     longhorn.enable = true;
+    immich.enable = true;
   };
 
   networking = {

@@ -17,6 +17,7 @@ in
     openbao.enable = lib.mkEnableOption "Shared media service user";
     ddns.enable = lib.mkEnableOption "Shared media service user";
     longhorn.enable = lib.mkEnableOption "Backups share user";
+    immich.enable = lib.mkEnableOption "Immich share user";
   };
 
   config = lib.mkMerge [
@@ -98,6 +99,15 @@ in
         isSystemUser = true;
         uid = 2004;
         group = "longhorn";
+      };
+    })
+
+    (lib.mkIf cfg.immich.enable {
+      users.groups.immich.gid = 2005;
+      users.users.immich = {
+        isSystemUser = true;
+        uid = 2005;
+        group = "immich";
       };
     })
   ];
