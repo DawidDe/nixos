@@ -54,7 +54,7 @@ in
   };
 
   virtualisation.oci-containers.containers.openbao = {
-    image = "ghcr.io/openbao/openbao:2.7.2@sha256:5046911075e137e154ce49ab051502f4ec7cf367d484ae4a4dce665d9b90561f";
+    image = "ghcr.io/openbao/openbao:2.7.3@sha256:ba4b133eb9586630024e71a617e66f37f29cc3534cdd46a6233e098ceded8dc9";
     user = "2002:2002";
     volumes = [
       "/opt/openbao/config.json:/openbao/config/config.json:ro"
