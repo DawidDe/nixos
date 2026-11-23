@@ -31,6 +31,10 @@
       "read only" = "no";
       "guest ok" = "no";
       "valid users" = "immich";
+      "force user" = "immich";
+      "force group" = "immich";
+      "create mask" = "0664";
+      "directory mask" = "0775";
       "hosts allow" = "192.168.178.4 192.168.178.5";
       "hosts deny" = "0.0.0.0/0";
     };
