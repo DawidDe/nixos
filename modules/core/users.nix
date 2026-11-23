@@ -33,7 +33,7 @@ in
           hashedPassword = "$6$lnIb4lO1ZY4t57rV$Kpm69ITMNzKXcPCWpQRaaIg3j.ibVosAxg7N9YdjtFJcD03gg1kSlEtxQUZ08SaWIH.zHczbFOoVzxLLJfvxD0";
 
           openssh.authorizedKeys.keys = [
-            "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIOblVhvH2oeELq13BVQrMrMIpD9mIKirs+1e+TSuAoONAAAABHNzaDo= main"
+            "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIByqhOs/m3Pxe6I/bqrNA9EbSn3w0TNb+uTV0XZroYHQAAAABHNzaDo= master"
           ];
         };
       };
