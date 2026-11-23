@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     # ── Core / System ─────────────────────────────────────────
     bash
+    bash-completion
     nano
     git
     sudo
