@@ -42,6 +42,8 @@
     # ── Development / Programming ────────────────────────────
     python314
     uv
+    ruff
+    gitleaks
     nodejs
     #jdk21
     jdk25
