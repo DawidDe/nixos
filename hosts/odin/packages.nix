@@ -41,6 +41,7 @@
 
     # ── Development / Programming ────────────────────────────
     python314
+    uv
     nodejs
     #jdk21
     jdk25
