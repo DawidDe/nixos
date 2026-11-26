@@ -18,7 +18,6 @@
 
   systemd.tmpfiles.rules = [
     "d /opt/prometheus 0750 prometheus prometheus"
-    "d /opt/prometheus/config 0750 prometheus prometheus"
     "d /opt/prometheus/data 0750 prometheus prometheus"
   ];
 
@@ -26,7 +25,6 @@
     image = "ghcr.io/prometheus/prometheus:v3.16.0@sha256:a85a695dd2368d80b5ce4cbd3ac1e4591b2273fa4fcbe353ac8f24d58254bc1b";
     user = "2006:2006";
     volumes = [
-      "/opt/prometheus/config:/etc/prometheus"
       "/opt/prometheus/data:/prometheus"
     ];
     networks = [
