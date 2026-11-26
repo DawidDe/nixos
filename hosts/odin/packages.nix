@@ -31,6 +31,7 @@
 
     # ── Browsers / Productivity ──────────────────────────────
     brave-origin
+    openvpn
     libreoffice
     vscodium
     antigravity
