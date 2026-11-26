@@ -117,7 +117,7 @@ in
       users.users.prometheus = {
         isSystemUser = true;
         uid = 2006;
-        group = "ddns";
+        group = "prometheus";
       };
     })
   ];
