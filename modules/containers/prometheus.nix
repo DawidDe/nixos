@@ -32,5 +32,6 @@
     networks = [
       "prometheus"
     ];
+    autoStart = true;
   };
 }
