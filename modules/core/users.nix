@@ -113,7 +113,7 @@ in
     })
 
     (lib.mkIf cfg.prometheus.enable {
-      users.groups.prometheus = 2006;
+      users.groups.prometheus.gid = 2006;
       users.users.prometheus = {
         isSystemUser = true;
         uid = 2006;
