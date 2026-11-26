@@ -24,6 +24,7 @@
     ../../modules/containers/newt.nix
     ../../modules/containers/pocket-id.nix
     ../../modules/containers/omni.nix
+    ../../modules/containers/prometheus.nix
   ];
 
   # Host-specific configurations

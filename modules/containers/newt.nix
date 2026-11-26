@@ -22,6 +22,7 @@
       "pocket-id"
       "openbao"
       "omni"
+      "prometheus"
       "supertokens_supertokens"
     ];
     autoStart = true;

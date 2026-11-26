@@ -10,5 +10,6 @@
     pocket-id.enable = true;
     openbao.enable = true;
     ddns.enable = true;
+    prometheus.enable = true;
   };
 }

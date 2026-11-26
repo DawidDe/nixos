@@ -18,6 +18,7 @@ in
     ddns.enable = lib.mkEnableOption "Shared media service user";
     longhorn.enable = lib.mkEnableOption "Backups share user";
     immich.enable = lib.mkEnableOption "Immich share user";
+    prometheus.enable = lib.mkEnableOption "Prometheus user";
   };
 
   config = lib.mkMerge [
@@ -108,6 +109,15 @@ in
         isSystemUser = true;
         uid = 2005;
         group = "immich";
+      };
+    })
+
+    (lib.mkIf cfg.prometheus.enable {
+      users.groups.ddns.gid = 2006;
+      users.users.ddns = {
+        isSystemUser = true;
+        uid = 2006;
+        group = "ddns";
       };
     })
   ];
