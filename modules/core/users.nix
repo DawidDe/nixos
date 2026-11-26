@@ -113,8 +113,8 @@ in
     })
 
     (lib.mkIf cfg.prometheus.enable {
-      users.groups.ddns.gid = 2006;
-      users.users.ddns = {
+      users.groups.prometheus = 2006;
+      users.users.prometheus = {
         isSystemUser = true;
         uid = 2006;
         group = "ddns";
