@@ -123,10 +123,10 @@ in
     })
 
     (lib.mkIf cfg.grafana.enable {
-      users.groups.grafana.gid = 2006;
+      users.groups.grafana.gid = 2007;
       users.users.grafana = {
         isSystemUser = true;
-        uid = 2006;
+        uid = 2007;
         group = "grafana";
       };
     })
