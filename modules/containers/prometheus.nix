@@ -27,6 +27,9 @@
     volumes = [
       "/opt/prometheus/data:/prometheus"
     ];
+    cmd = [
+      "--web.enable-remote-write-receiver"
+    ];
     networks = [
       "prometheus"
     ];
