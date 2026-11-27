@@ -11,5 +11,6 @@
     openbao.enable = true;
     ddns.enable = true;
     prometheus.enable = true;
+    grafana.enable = true;
   };
 }

@@ -19,6 +19,7 @@ in
     longhorn.enable = lib.mkEnableOption "Backups share user";
     immich.enable = lib.mkEnableOption "Immich share user";
     prometheus.enable = lib.mkEnableOption "Prometheus user";
+    grafana.enable = lib.mkEnableOption "Grafana user";
   };
 
   config = lib.mkMerge [
@@ -118,6 +119,15 @@ in
         isSystemUser = true;
         uid = 2006;
         group = "prometheus";
+      };
+    })
+
+    (lib.mkIf cfg.grafana.enable {
+      users.groups.grafana.gid = 2006;
+      users.users.grafana = {
+        isSystemUser = true;
+        uid = 2006;
+        group = "grafana";
       };
     })
   ];
