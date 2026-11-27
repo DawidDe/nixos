@@ -28,6 +28,8 @@
       "/opt/prometheus/data:/prometheus"
     ];
     cmd = [
+      "--config.file=/etc/prometheus/prometheus.yml"
+      "--storage.tsdb.path=/prometheus"
       "--web.enable-remote-write-receiver"
     ];
     networks = [
