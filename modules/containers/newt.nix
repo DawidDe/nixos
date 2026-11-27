@@ -23,6 +23,7 @@
       "openbao"
       "omni"
       "prometheus"
+      "grafana"
       "supertokens_supertokens"
     ];
     autoStart = true;
