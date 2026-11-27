@@ -25,6 +25,7 @@
     ../../modules/containers/pocket-id.nix
     ../../modules/containers/omni.nix
     ../../modules/containers/prometheus.nix
+    ../../modules/containers/grafana.nix
   ];
 
   # Host-specific configurations
